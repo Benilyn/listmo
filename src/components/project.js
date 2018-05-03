@@ -14,7 +14,7 @@ export class Project extends React.Component {
 	render() {
 		const tasks = this.props.tasks.map((task, index) =>
 			<li className="task-name" key={index}>
-				<Task />
+				<Task index={index} {...task}/>
 			</li>
 		);
 		return (
