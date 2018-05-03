@@ -1,12 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {Link} from 'react-router-dom';
 
 import Project from './project';
 import AddForm from './add-form';
 import {addProject} from '../actions/action-index';
-
-
 
 export class ProjectList extends React.Component {
 	addProject(title) {
@@ -15,24 +13,31 @@ export class ProjectList extends React.Component {
 
 	render() {
 		const projects = this.props.projects.map((project, index) =>
-			<ul className="project-name" key={index}>
-				<Project index={index} {...project} />
-			</ul>
-		);
+			<li className="li-link" key={index}>
+				<Link to={`/${index}`} {...project}>
+					<Project index={index} {...project} />
+				</Link>
+			</li>
+		); {/*const projects*/}
+
 		return (
-			<div className="listmo">
-				<h3>{this.props.title}</h3>
-				{projects}
-				<li className="add-project">
-					<AddForm
-						type="project"
-						onAdd={title => this.addProject(title)}
-					/>	
-				</li>
+			<div className="project-list">
+				<ul className="project-list">
+					<h3>{this.props.title}</h3>
+					{projects}
+
+					<div className="add-project">
+						<AddForm
+							type="project"
+							onAdd={title => this.addProject(title)}
+						/>	
+					</div>
+				</ul>
 			</div>
-		)
+		); {/*return*/}
 	}	
 }
+
 ProjectList.defaultProps = {
     title: 'Project List'
 };
