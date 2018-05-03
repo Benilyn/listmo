@@ -4,16 +4,16 @@ const initialState = {
 	projects: [{
 		title: 'Project 1',
 		tasks: [{
-			activity: 'Task 1'
+			text: 'Task 1'
 		}, {
-			activity: 'Task 2'
+			text: 'Task 2'
 		}]
 	}, {
 		title: 'Project 2',
 		tasks: [{
-			activity: 'Task A'
+			text: 'Task A'
 		}, {
-			activity: 'Task B'
+			text: 'Task B'
 		}]
 	}]
 }; {/*initialState*/}
@@ -28,7 +28,7 @@ export const listmoReducer = (state=initialState, action) => {
 		}); 
 	} {/*actions.ADD_PROJECT*/}
 
-	if (action.type === action.ADD_TASK) {
+	if (action.type === actions.ADD_TASK) {
 		let projects = state.projects.map((project, index) => {
 			if (index !== action.projectIndex) {
 				return project;
