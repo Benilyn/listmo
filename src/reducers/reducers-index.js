@@ -30,7 +30,7 @@ export const listmoReducer = (state=initialState, action) => {
 
 	if (action.type === actions.ADD_TASK) {
 		let projects = state.projects.map((project, index) => {
-			if (index !== action.projectIndex) {
+			if (index !== parseInt(action.projectIndex, 10)) {
 				return project;
 			}
 			return Object.assign({}, project, {
