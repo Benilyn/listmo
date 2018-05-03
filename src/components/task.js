@@ -1,6 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function Task(props) {
+export function Task(props) {
 	return (
 		<div className="task-name">
 			{props.text}
@@ -11,3 +12,5 @@ export default function Task(props) {
 Task.defaultProps = {
 	text: ''
 };
+
+export default connect()(Task);
