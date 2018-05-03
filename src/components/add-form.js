@@ -27,7 +27,9 @@ export default class AddForm extends React.Component {
 			return (
 				<div className="add-button"
 					 onClick = {() => this.setEditing(true)}>
-					 	<a href="#">Add {this.props.type} </a>
+					 	<button className="add-button">
+					 		Add {this.props.type}
+					 	</button>
 				</div>
 			);
 		}
