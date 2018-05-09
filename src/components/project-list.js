@@ -14,7 +14,7 @@ export class ProjectList extends React.Component {
 	render() {
 		const projects = this.props.projects.map((project, index) =>
 			<li className="project-link" key={index}>
-				<Link to={`/${index}`} {...project}>
+				<Link to={`/project-list/${index}`} {...project}>
 					{project.title}
 				</Link>
 			</li>
