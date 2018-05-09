@@ -4,16 +4,20 @@ const initialState = {
 	projects: [{
 		title: 'Project 1',
 		tasks: [{
-			text: 'Task 1'
+			text: 'Task 1',
+			date: 'Nov 30, 2018'
 		}, {
-			text: 'Task 2'
+			text: 'Task 2',
+			date: 'Dec 31, 2018'
 		}]
 	}, {
 		title: 'Project 2',
 		tasks: [{
-			text: 'Task A'
+			text: 'Task A',
+			date: 'Jan 31, 2019'
 		}, {
-			text: 'Task B'
+			text: 'Task B',
+			date: 'Feb 28, 2019'
 		}]
 	}]
 }; {/*initialState*/}
