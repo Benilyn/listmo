@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
 
-import ProjectList from './project-list';
-
 
 export class LoginForm extends React.Component {
 	onSubmit(event) {
