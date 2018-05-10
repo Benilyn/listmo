@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {Field, reduxForm, reset} from 'redux-form';
 import {Redirect, withRouter} from 'react-router-dom';
 
 
@@ -25,7 +25,23 @@ export class LoginForm extends React.Component {
 		))
     	return (
 			<form className="login-form" onSubmit={e => this.onSubmit(e)}>
-				Login Form
+				<h3>{this.props.form}</h3>
+				<div className="loginUserName">
+					<Field 
+						component="input" 
+						type="text" 
+						name="userName" 
+						placeholder="Userame" 
+					/>
+				</div>
+				<div className="loginPassword">
+					<Field 
+						component="input" 
+						type="password" 
+						name="password" 
+						placeholder="Password" 
+					/>
+				</div>
 				<Button />
 			</form>
 		)	
@@ -34,5 +50,6 @@ export class LoginForm extends React.Component {
 	
 }
 
-
-export default connect()(LoginForm);
+export default reduxForm({
+	form: 'User Login'
+})(LoginForm);
