@@ -3,21 +3,25 @@ import * as actions from '../actions/action-index.js';
 const initialState = {
 	projects: [{
 		title: 'Project 1',
-		tasks: [{
-			text: 'Task 1',
-			date: 'Nov 30, 2018'
+		projectTask: [{
+			taskTitle: 'Task 1',
+			taskDue: 'Nov 30, 2018',
+			taskDetail: 'Details for Task1, Project1'
 		}, {
-			text: 'Task 2',
-			date: 'Dec 31, 2018'
+			taskTitle: 'Task 2',
+			taskDue: 'Dec 31, 2018',
+			taskDetail: 'Details for Task2, Project1'
 		}]
 	}, {
 		title: 'Project 2',
-		tasks: [{
-			text: 'Task A',
-			date: 'Jan 31, 2019'
+		projectTask: [{
+			taskTitle: 'Task A',
+			taskDue: 'Jan 31, 2019',
+			taskDetail: 'Details for Task1, Project2'
 		}, {
-			text: 'Task B',
-			date: 'Feb 28, 2019'
+			taskTitle: 'Task B',
+			taskDue: 'Feb 28, 2019',
+			taskDetail: 'Details for Task2, Project2'
 		}]
 	}]
 }; {/*initialState*/}
@@ -27,7 +31,7 @@ export const listmoReducer = (state=initialState, action) => {
 		return Object.assign({}, state, {
 			projects: [...state.projects, {
 				title: action.title,
-				tasks: []
+				projectTask: []
 			}]
 		}); 
 	} {/*actions.ADD_PROJECT*/}
@@ -38,8 +42,10 @@ export const listmoReducer = (state=initialState, action) => {
 				return project;
 			}
 			return Object.assign({}, project, {
-				tasks: [...project.tasks, {
-					text: action.text
+				projectTask: [...project.projectTask, {
+					taskTitle: action.taskTitle,
+					taskDue: action.taskDue,
+					taskDetail: action.taskDetail
 				}] 
 			});  
 		}); 

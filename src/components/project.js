@@ -13,9 +13,9 @@ export class Project extends React.Component {
 	}
 
 	render() {
-		const tasks = this.props.tasks.map((task, index) =>
+		const taskProject = this.props.taskProject.map((taskTitle, index) =>
 			<li className="task-name" key={index}>
-				<Task {...task} />
+				<Task {...taskTitle} />
 			</li>
 
 		);
@@ -23,7 +23,7 @@ export class Project extends React.Component {
 			<div className="tasks-lists">
 				<h2>{this.props.projectName}</h2>
 				<h3>{this.props.title}</h3>
-				{tasks}
+				{taskProject}
 				<div className="add-task">
 					<AddForm
 						type="task"
@@ -48,8 +48,8 @@ const mapStateToProps = (state, props) => {
 	return {
 		projectId,
 		projectName: project.title,
-		tasks: Object.keys(project.tasks).map(taskId =>
-			project.tasks[taskId]
+		taskProject: Object.keys(project.taskProject).map(taskProjectId =>
+			project.taskProject[taskProjectId]
 		)
 	}
 }

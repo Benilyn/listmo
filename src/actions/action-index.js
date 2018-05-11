@@ -5,8 +5,8 @@ export const addProject = title => ({
 }); {/*addProject*/}
 
 export const ADD_TASK = 'ADD_TASK';
-export const addTask = (text, projectIndex) => ({
+export const addTask = (projectTask, projectIndex) => ({
 	type: ADD_TASK,
-	text,
+	projectTask,
 	projectIndex
 }); {/*addProject*/}
