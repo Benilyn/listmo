@@ -1,47 +1,69 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import {Field, reduxForm, formValueSelector } from 'redux-form';
 
-export default class AddForm extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			editing: false
-		}
-		this.onSubmit = this.onSubmit.bind(this);
-	}
+let AddFormValues = props => {
+  const {
+    title,
+    duedate,
+    details,
+    handleSubmit,
+    pristine,
+    reset,
+    submitting
+  } = props;
 
-	onSubmit(event) {
-		event.preventDefault();
-		const text = this.textInput.value.trim();
-		if (text && this.props.onAdd) {
-			this.props.onAdd(this.textInput.value);
-		}
-		this.textInput.value = '';
-	}
-
-	setEditing(editing) {
-		this.setState({editing});
-	}
-
-	render() {
-		if (!this.state.editing) {
-			return (
-				<div className="add-button"
-					 onClick = {() => this.setEditing(true)}>
-					 	<button className="add-button">
-					 		Add {this.props.type}
-					 	</button>
-				</div>
-			);
-		}
-		return (
-			<form className="add-form" onSubmit={this.onSubmit}>
-				<input type="text" ref={input => this.textInput = input} />
-				<button>Add</button>
-				<button type="button" onClick={() => this.setEditing(false)}>
-					Cancel
-				</button>
-			</form>
-		);
-	}
-	
+  return (
+    <form onSubmit={handleSubmit}>
+    	<div>
+        	<Field
+            	name="title"
+            	component="input"
+            	type="text"
+            	placeholder="Title"
+        	/>
+        	<Field
+	            name="duedate"
+	            component="input"
+	            type="date"
+	            placeholder="Due Date"
+        	/>
+        	<Field
+	            name="details"
+	            component="input"
+	            type="text"
+	            placeholder="Details"
+        	/>
+        </div>
+        <div>
+	        <button type="submit" disabled={pristine || submitting}>
+	        	Add {title}
+	        </button>
+	        <button type="button" disabled={pristine || submitting} onClick={reset}>
+	        	Reset
+	        </button>
+      </div>
+    </form>
+  )
 }
+
+
+AddFormValues = reduxForm({
+  form: 'selectingAddFormValues' 
+})(AddFormValues)
+
+
+const selector = formValueSelector('selectingAddFormValues') 
+AddFormValues = connect(state => {
+  
+  const titleValue = selector(state, 'title');
+  const duedateValue = selector(state, 'duedate');
+  const detailsValue = selector(state, 'details');
+  return {
+    titleValue,
+    duedateValue,
+    detailsValue
+  }
+})(AddFormValues)
+
+export default AddFormValues
