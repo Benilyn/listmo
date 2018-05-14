@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import RegistrationForm from './registration-form';
 
-export function Register() {
+export function RegisterXXX() {
 	return (
 		<div className="register">
 			<RegistrationForm />

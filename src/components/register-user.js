@@ -4,21 +4,38 @@ import {addUser} from '../actions/action-index';
 import {Field, reduxForm, reset} from 'redux-form';
 import {Redirect, withRouter} from 'react-router-dom';
 
-export class RegistrationForm extends React.Component {
+export class RegisterUser extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isRegistered: false
+		};
+		this.onSubmit = this.onSubmit.bind(this);
+	}
 
 	onSubmit(values) {
         console.log(values);
+        this.registerUser(true);
     //    this.props.dispatch(addUser(user));
         console.log('testing registration-form');
-        return (
-        	<Redirect to="/" />
-        );   	
+          	
     }
 
+    registerUser(isRegistered) {
+		this.setState({isRegistered});
+	}
+
 	render() {
+		if (this.state.isRegistered) {
+			return (
+        	<Redirect to="/" />
+        ); 
+		}
 		
 		return (
-			<form className="registration-form" onSubmit={e => this.onSubmit(e)}>
+			<form 
+				className="registration-form"
+				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				<h3>{this.props.form}</h3>
 				<div className="firstName">
 					<Field 
@@ -89,8 +106,8 @@ const mapStateToProps = state => {
     };
 };
 
-RegistrationForm = connect(mapStateToProps)(RegistrationForm);
+RegisterUser = connect(mapStateToProps)(RegisterUser);
 
 export default reduxForm({
-	form: 'Register User'
-})(RegistrationForm);
+	form: 'RegisterUser'
+})(RegisterUser);

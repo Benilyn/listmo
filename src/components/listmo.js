@@ -4,7 +4,7 @@ import {Route, withRouter} from 'react-router-dom';
 
 import Header from './header';
 import LandingPage from './landing-page';
-import Register from './register';
+import RegisterUser from './register-user';
 import ProjectList from './project-list';
 import Project from './project';
 
@@ -14,7 +14,7 @@ export class Listmo extends React.Component {
 	        <div className="listmo">
 	        	<Header />
 	        	<Route exact path="/" component={LandingPage} />
-	        	<Route exact path="/register" component={Register} />
+	        	<Route exact path="/register" component={RegisterUser} />
 	            <Route exact path="/project-list" component={ProjectList} />
 	            <Route exact path="/project-list/:projectId" component={Project} />
 	        </div>
