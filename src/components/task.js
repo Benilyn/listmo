@@ -23,7 +23,7 @@ export class Task extends React.Component {
 		let details;
 		if(!this.state.hidden === true) {
 			details = <div onClick={() => this.hideTaskDetails(true)}>
-				<span>{this.props.taskDue}</span>
+				<span>{this.props.taskDue}</span><br />
 				<span>{this.props.taskDetail}</span>
 			</div>
 		}
