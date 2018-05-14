@@ -9,7 +9,7 @@ const initialState = {
 	}]
 };
 
-export const formReducer = (state=initialState, action) => {
+export const registerReducer = (state=initialState, action) => {
 	if(action.type === actions.ADD_USER) {
 		return Object.assign({}, state, {
 			user: [...state.user, {
