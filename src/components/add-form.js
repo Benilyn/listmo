@@ -1,69 +1,86 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import {Field, reduxForm, formValueSelector } from 'redux-form';
+import {connect} from 'react-redux';
+import {addProject} from '../actions/action-index';
+import {Field, reduxForm, reset} from 'redux-form';
 
-let AddFormValues = props => {
-  const {
-    title,
-    duedate,
-    details,
-    handleSubmit,
-    pristine,
-    reset,
-    submitting
-  } = props;
+export class AddForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: false
+    }
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-  return (
-    <form onSubmit={handleSubmit}>
-    	<div>
-        	<Field
-            	name="title"
-            	component="input"
-            	type="text"
-            	placeholder="Title"
-        	/>
-        	<Field
-	            name="duedate"
-	            component="input"
-	            type="date"
-	            placeholder="Due Date"
-        	/>
-        	<Field
-	            name="details"
-	            component="input"
-	            type="text"
-	            placeholder="Details"
-        	/>
+  onSubmit(values) {
+    console.log(values);
+    console.log('testing add-form for projects');
+  }
+
+  setEditing(editing) {
+    this.setState({editing});
+  }
+
+  render() {
+    if(!this.state.editing) {
+      return (
+        <div className="add-button"
+          onClick = {() => this.setEditing(true)}>
+            <button className="add-button">
+              Add {this.props.type}
+            </button>
         </div>
-        <div>
-	        <button type="submit" disabled={pristine || submitting}>
-	        	Add {title}
-	        </button>
-	        <button type="button" disabled={pristine || submitting} onClick={reset}>
-	        	Reset
-	        </button>
-      </div>
-    </form>
-  )
+      );
+    }
+    return (
+      <form className="add-form"
+            onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        <div className="title">
+          <Field
+              name="title"
+              component="input"
+              type="text"
+              placeholder="Title"
+          />
+        </div>
+        <div  className="duedate">
+          <Field
+              name="duedate"
+              component="input"
+              type="date"
+              placeholder="Due Date"
+          />
+        </div>
+        <div  className="details">
+          <Field
+              name="details"
+              component="input"
+              type="text"
+              placeholder="Details"
+          />
+        </div>
+        <div className="buttons">
+          <button type="submit">
+            Add
+          </button>
+          <button type="button" onClick={reset}>
+            Reset
+          </button>
+        </div>
+      </form>
+    );
+  }
 }
 
-
-AddFormValues = reduxForm({
-  form: 'selectingAddFormValues' 
-})(AddFormValues)
-
-
-const selector = formValueSelector('selectingAddFormValues') 
-AddFormValues = connect(state => {
-  
-  const titleValue = selector(state, 'title');
-  const duedateValue = selector(state, 'duedate');
-  const detailsValue = selector(state, 'details');
+const mapStateToProps = state => {
   return {
-    titleValue,
-    duedateValue,
-    detailsValue
-  }
-})(AddFormValues)
+    addForm: state.projects
+  };
+};
 
-export default AddFormValues
+AddForm = connect(mapStateToProps)(AddForm);
+
+export default reduxForm({
+  form: 'AddForm'
+})(AddForm);
+
