@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addProject} from '../actions/action-index';
+import {addTask} from '../actions/action-index';
 import {Field, reduxForm, reset} from 'redux-form';
 
 export class AddForm extends React.Component {
@@ -74,7 +74,7 @@ export class AddForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    addForm: state.projects
+    addForm: state.projectTask
   };
 };
 
