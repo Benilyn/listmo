@@ -23,7 +23,7 @@ export class Task extends React.Component {
 		let details;
 		if(!this.state.hidden === true) {
 			details = <div onClick={() => this.hideTaskDetails(true)}>
-				<span>{this.props.taskDue}</span><br />
+				<span>Due: {this.props.taskDue}</span><br />
 				<span>{this.props.taskDetail}</span>
 			</div>
 		}
@@ -35,7 +35,7 @@ export class Task extends React.Component {
 			</div>
 		)
 	}
-	
+
 }
 
 Task.defaultProps = {
@@ -43,5 +43,7 @@ Task.defaultProps = {
 	taskDue: '',
 	taskDetail: ''
 };
+
+
 
 export default connect()(Task);
