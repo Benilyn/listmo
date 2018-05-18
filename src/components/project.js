@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import Task from './task';
-import AddForm from './add-form';
+import AddTask from './add-task';
 import {addTask} from '../actions/action-index';
 import './project.css';
 
@@ -21,11 +21,15 @@ export class Project extends React.Component {
 		);
 		return (
 			<div className="tasks-lists">
-				<h2>{this.props.projectName}</h2>
+				<div className="project-info">
+					<h2>{this.props.projectTitle}</h2>
+					<span>Due: {this.props.projectDue}</span><br />
+					<span>{this.props.projectDetail}</span>
+				</div>
 				<h3>{this.props.title}</h3>
 				{projectTask}
 				<div className="add-task">
-					<AddForm
+					<AddTask
 						type="task"
 						onAdd={text => this.addTask(text)}
 					/>
@@ -34,7 +38,7 @@ export class Project extends React.Component {
 		)
 	}
 
-	
+
 }
 
 Project.defaultProps = {
@@ -44,10 +48,12 @@ Project.defaultProps = {
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
 	console.log(state);
-	const project = state.projects[projectId];
+	const project = state.listmoReducer.projects[projectId];
 	return {
 		projectId,
-		projectName: project.title,
+		projectTitle: project.projectTitle,
+		projectDue: project.projectDue,
+		projectDetail: project.projectDetail,
 		projectTask: Object.keys(project.projectTask).map(projectTaskId =>
 			project.projectTask[projectTaskId]
 		)
