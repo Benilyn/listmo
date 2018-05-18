@@ -3,19 +3,19 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import Project from './project';
-import AddForm from './add-form';
+import AddProject from './add-project';
 import {addProject} from '../actions/action-index';
 
 export class ProjectList extends React.Component {
-	addProject(title) {
-		this.props.dispatch(addProject(title));
+	addProject(projectTitle) {
+		this.props.dispatch(addProject(projectTitle));
 	}
 
 	render() {
 		const projects = this.props.projects.map((project, index) =>
 			<li className="project-link" key={index}>
-				<Link to={`/project-list/${index}`} {...project}>
-					{project.title}
+				<Link to={`/project-list/${index}`}>
+					{project.projectTitle}
 				</Link>
 			</li>
 		); {/*const projects*/}
@@ -27,15 +27,15 @@ export class ProjectList extends React.Component {
 					{projects}
 
 					<div className="add-project">
-						<AddForm
+						<AddProject
 							type="project"
-							onAdd={title => this.addProject(title)}
-						/>	
+							onAdd={projectTitle => this.addProject(projectTitle)}
+						/>
 					</div>
 				</ul>
 			</div>
 		); {/*return*/}
-	}	
+	}
 }
 
 ProjectList.defaultProps = {
@@ -43,7 +43,8 @@ ProjectList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    projects: state.projects || []
+    projects: state.listmoReducer.projects || []
+
 });
 
 export default connect(mapStateToProps)(ProjectList);
