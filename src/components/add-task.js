@@ -14,6 +14,7 @@ export class AddTask extends React.Component {
 
   onSubmit(values) {
     console.log(values);
+    this.props.dispatch(addTask(values));
     console.log('testing add-form for task');
   }
 
@@ -33,27 +34,27 @@ export class AddTask extends React.Component {
       );
     }
     return (
-      <form className="add-form"
+      <form className="add-task-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="title">
+        <div className="task-title">
           <Field
-              name="title"
+              name="taskTitle"
               component="input"
               type="text"
               placeholder="Title"
           />
         </div>
-        <div  className="duedate">
+        <div  className="task-duedate">
           <Field
-              name="duedate"
+              name="taskDuedate"
               component="input"
               type="date"
               placeholder="Due Date"
           />
         </div>
-        <div  className="details">
+        <div  className="task-detail">
           <Field
-              name="details"
+              name="taskDetail"
               component="input"
               type="text"
               placeholder="Details"
@@ -76,6 +77,7 @@ export class AddTask extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     addTask: state.projectTask
   };
