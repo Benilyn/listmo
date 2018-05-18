@@ -14,7 +14,9 @@ export class AddProject extends React.Component {
 
   onSubmit(values) {
     console.log(values);
+    this.props.dispatch(addProject(values));
     console.log('testing add-form for projects');
+    this.setEditing(false);
   }
 
   setEditing(editing) {
@@ -33,27 +35,27 @@ export class AddProject extends React.Component {
       );
     }
     return (
-      <form className="add-form"
+      <form className="add-project-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="title">
+        <div className="project-title">
           <Field
-              name="title"
+              name="projectTitle"
               component="input"
               type="text"
               placeholder="Title"
           />
         </div>
-        <div  className="duedate">
+        <div  className="project-duedate">
           <Field
-              name="duedate"
+              name="projectDuedate"
               component="input"
               type="date"
               placeholder="Due Date"
           />
         </div>
-        <div  className="details">
+        <div  className="project-detail">
           <Field
-              name="details"
+              name="projectDetail"
               component="input"
               type="text"
               placeholder="Details"
@@ -64,7 +66,10 @@ export class AddProject extends React.Component {
             Add
           </button>
           <button type="button" onClick={reset}>
-            Reset
+            clear
+          </button>
+          <button type="button" onClick = {() => this.setEditing(false)}>
+            Cancel
           </button>
         </div>
       </form>
@@ -83,4 +88,3 @@ AddProject = connect(mapStateToProps)(AddProject);
 export default reduxForm({
   form: 'AddProject'
 })(AddProject);
-
