@@ -1,7 +1,7 @@
 export const ADD_PROJECT = 'ADD_PROJECT';
-export const addProject = title => ({
+export const addProject = project => ({
 	type: ADD_PROJECT,
-	title
+	project
 }); {/*addProject*/}
 
 export const ADD_TASK = 'ADD_TASK';
