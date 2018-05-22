@@ -8,8 +8,9 @@ import {addTask} from '../actions/action-index';
 import './project.css';
 
 export class Project extends React.Component {
-	addTask(text) {
-		this.props.dispatch(addTask(text, this.props.projectId));
+	addTask(taskTitle) {
+		console.log(taskTitle);
+		this.props.dispatch(addTask(taskTitle, this.props.projectId));
 	}
 
 	render() {
@@ -31,7 +32,7 @@ export class Project extends React.Component {
 				<div className="add-task">
 					<AddTask
 						type="task"
-						onAdd={text => this.addTask(text)}
+						onAdd={taskTitle => this.addTask(taskTitle)}
 					/>
 				</div>
 			</div>
@@ -47,8 +48,10 @@ Project.defaultProps = {
 
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
-	console.log(state);
+//	console.log(state);
+//	console.log(state.AddTask.values);
 	const project = state.listmoReducer.projects[projectId];
+//	console.log(project.projectTask);
 	return {
 		projectId,
 		projectTitle: project.projectTitle,
