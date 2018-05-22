@@ -48,11 +48,12 @@ export const listmoReducer = (state=initialState, action) => {
 			if (index !== parseInt(action.projectIndex, 10)) {
 				return project;
 			}
+			console.log(action);
 			return Object.assign({}, project, {
 				projectTask: [...project.projectTask, {
-					taskTitle: action.taskTitle,
-					taskDue: action.taskDue,
-					taskDetail: action.taskDetail
+					taskTitle: action.projectTask.taskTitle,
+					taskDue: action.projectTask.taskDue,
+					taskDetail: action.projectTask.taskDetail
 				}]
 			});
 		});
