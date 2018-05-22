@@ -13,9 +13,10 @@ export class AddTask extends React.Component {
   }
 
   onSubmit(values) {
-    console.log(values);
-    this.props.dispatch(addTask(values));
-    console.log('testing add-form for task');
+  //  console.log(values);
+    this.props.onAdd(values);
+//    console.log('testing add-form for task');
+    this.setEditing(false);
   }
 
   setEditing(editing) {
@@ -79,7 +80,8 @@ export class AddTask extends React.Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    addTask: state.projectTask
+    addTask: state.projectTask,
+    addProject: state.projects
   };
 };
 
