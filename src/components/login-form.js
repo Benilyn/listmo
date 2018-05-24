@@ -110,7 +110,7 @@ render() {
 
 const mapStateToProps = state => {
     return {
-        userForm: state.user
+        loginForm: state.user
     };
 };
 
