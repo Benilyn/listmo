@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addUser} from '../actions/action-index';
+import {addUser, postUser} from '../actions/action-index';
 import {Field, reduxForm, reset} from 'redux-form';
 import {Redirect, withRouter} from 'react-router-dom';
 
@@ -16,7 +16,13 @@ export class RegisterUser extends React.Component {
 	onSubmit(values) {
         console.log(values);
         this.registerUser(true);
-    //    this.props.dispatch(addUser(user));
+        this.props.dispatch(postUser({
+        	firstName: values.firstName,
+        	lastName: values.lastName,
+        	email: values.email,
+        	userName: values.userName,
+        	password: values.password})
+       	);
         console.log('testing registration-form');
           	
     }
@@ -49,7 +55,7 @@ export class RegisterUser extends React.Component {
 					<Field 
 						component="input" 
 						type="text" 
-						name="lasttName" 
+						name="lastName" 
 						placeholder="Last Name" 
 					/>
 				</div>
