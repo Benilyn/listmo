@@ -19,7 +19,7 @@ export const addUser = user => ({
 	user
 }); {/*addUser*/}
 
-export const POST_USER = 'POST_USER';
+
 export const postUser = user => dispatch => {
 	fetch(`${API_BASE_URL}/user`, {
 		method: 'POST',
@@ -36,6 +36,26 @@ export const postUser = user => dispatch => {
 	})
 	.then(res => res.json())
 	.then(success => dispatch(addUser(success)))
+	.catch(err => {
+		console.log(err);
+		return Promise.reject(err);
+	});
+};
+
+
+export const loginUser = (userName, password) => dispatch => {
+	fetch(`${API_BASE_URL}/login`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+        	userName,
+        	password
+		})
+	})
+	.then(res => res.json())
+//	.then(success => dispatch(addUser(success)))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
