@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Field, reduxForm, SubmissionError} from 'redux-form';
 import {Redirect, withRouter} from 'react-router-dom';
 import {API_BASE_URL} from '../config';
+import {loginUser} from '../actions/action-index';
 
 export class LoginForm extends React.Component {
 	constructor(props) {
@@ -16,95 +17,64 @@ export class LoginForm extends React.Component {
 
 	onSubmit(values) {
 
-		const login = (userName, password) => {
-			return (
-					fetch(`{API_BASE_URL}/login`, {
-							method: 'POST',
-							headers: {
-									'Content-Type': 'application/json'
-							},
-							body: JSON.stringify({
-									userName,
-									password
-							})
-					}) //fetch
-					.then(res => res.json())
-					.then(console.log('login', userName))
-					.then (this.loginUser(true))
-					.catch(err => {
-								const {code} = err;
-								const message =
-										code === 401
-												? 'Incorrect username or password'
-												: 'Unable to login, please try again';
-								return Promise.reject(
-										new SubmissionError({
-												_error: message
-										}) //SubmissionError
-								); //Promise.reject
-						}) //.catch
+        console.log(values);
+        this.loginUser(true);
+        this.props.dispatch(loginUser({
+        	userName: values.userName,
+        	password: values.password})
+       	);
+        console.log('testing login');     	
+    }
 
-				) //return
-			} //const login
-	} //onSubmit
+    
+    loginUser(isLoggedIn) {
+		this.setState({isLoggedIn});
+	} //loginUser
 
 
-loginUser(isLoggedIn) {
-	this.setState({isLoggedIn});
-} //loginUser
-
-
-render() {
-		if (this.state.isRegistered) {
+	render() {
+			if (this.state.isLoggedIn) {
 				return (
-	        	<Redirect to="/project-list" />
-	        );
-		} //if (this.state.isRegistered)
+		       		<Redirect to="/project-list" />
+		       	)
+			} //if (this.state.isRegistered)
 
-		let error;
-    if (this.props.error) {
-        error = (
-            <div className="login-error">
-                {this.props.error}
-            </div>
-				); //error
-    } //if (this.props.error)
+			let error;
+	    if (this.props.error) {
+	        error = (
+	            <div className="login-error">
+	                {this.props.error}
+	            </div>
+					); //error
+	    } //if (this.props.error)
 
-//		const Button = withRouter(({ history }) => (
-//			  <button
-//			    type='button'
-//			    onClick={() => { history.push('/project-list') }}>
-//			    Login
-//			  </button>
-//		)) //const Button
-
-    return (
-			<form className="login-form" onSubmit={values => this.onSubmit(values)}>
-				<h3>User Login</h3>
-				<div className="loginUserName">
-					<Field
-						component="input"
-						type="text"
-						name="userName"
-						id="userName"
-						placeholder="UserName"
-					/>
-				</div>
-				<div className="loginPassword">
-					<Field
-						component="input"
-						type="password"
-						name="password"
-						id="password"
-						placeholder="Password"
-					/>
-				</div>
-				<button type="submit">
-					Submit
-				</button>
-			</form>
-		) //return form
-} //render()
+	    return (
+				<form className="login-form" onSubmit={values => this.onSubmit(values)}>
+					<h3>User Login</h3>
+					<div className="loginUserName">
+						<Field
+							component="input"
+							type="text"
+							name="userName"
+							id="userName"
+							placeholder="UserName"
+						/>
+					</div>
+					<div className="loginPassword">
+						<Field
+							component="input"
+							type="password"
+							name="password"
+							id="password"
+							placeholder="Password"
+						/>
+					</div>
+					<button type="submit">
+						Submit
+					</button>
+				</form>
+			) //return form
+	} //render()
 
 } //export class LoginForm extends React.Component
 
