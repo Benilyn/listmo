@@ -19,10 +19,7 @@ export class LoginForm extends React.Component {
 
         console.log(values);
         this.loginUser(true);
-        this.props.dispatch(loginUser({
-        	userName: values.userName,
-        	password: values.password})
-       	);
+        this.props.dispatch(loginUser(values.userName, values.password));
         console.log('testing login');     	
     }
 
@@ -49,7 +46,9 @@ export class LoginForm extends React.Component {
 	    } //if (this.props.error)
 
 	    return (
-				<form className="login-form" onSubmit={values => this.onSubmit(values)}>
+				<form className="login-form" onSubmit={this.props.handleSubmit(values =>
+                    this.onSubmit(values)
+                )}>
 					<h3>User Login</h3>
 					<div className="loginUserName">
 						<Field
