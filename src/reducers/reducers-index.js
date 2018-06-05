@@ -3,7 +3,7 @@ import * as actions from '../actions/action-index.js';
 const initialState = {
 	projects: [{
 		projectTitle: 'Project 1',
-		projectDue: 'Dec. 21, 2018',
+		projectDueDate: 'Dec. 21, 2018',
 		projectDetail: 'details for Project1',
 		projectTask: [{
 			taskTitle: 'Task 1',
@@ -16,7 +16,7 @@ const initialState = {
 		}]
 	}, {
 		projectTitle: 'Project 2',
-		projectDue: 'Jan. 31, 2019',
+		projectDueDate: 'Jan. 31, 2019',
 		projectDetail: 'details for Project2',
 		projectTask: [{
 			taskTitle: 'Task A',
@@ -36,7 +36,7 @@ export const listmoReducer = (state=initialState, action) => {
 		return Object.assign({}, state, {
 			projects: [...state.projects, {
 				projectTitle: action.project.projectTitle,
-				projectDue: action.project.projectDuedate,
+				projectDueDate: action.project.projectDuedate,
 				projectDetail: action.project.projectDetail,
 				projectTask: []
 			}]
