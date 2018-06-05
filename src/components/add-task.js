@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addTask} from '../actions/action-index';
+import {addTask, postTask} from '../actions/action-index';
 import {Field, reduxForm, reset} from 'redux-form';
 
 export class AddTask extends React.Component {
@@ -13,11 +13,18 @@ export class AddTask extends React.Component {
   }
 
   onSubmit(values) {
-  //  console.log(values);
     this.props.onAdd(values);
-//    console.log('testing add-form for task');
+    this.setEditing(true);
+    this.props.dispatch(postTask({
+      taskTitle: values.taskTitle,
+      taskDuedate: values.taskDuedate,
+      taskDetail: values.taskDetail,
+      taskProject: values.taskProject})
+    );
+    console.log('testing add-form for projects');
     this.setEditing(false);
   }
+
 
   setEditing(editing) {
     this.setState({editing});
