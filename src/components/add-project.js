@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addProject} from '../actions/action-index';
+import {addProject, postProject} from '../actions/action-index';
 import {Field, reduxForm, reset} from 'redux-form';
 
 export class AddProject extends React.Component {
@@ -14,7 +14,12 @@ export class AddProject extends React.Component {
 
   onSubmit(values) {
     console.log(values);
-    this.props.dispatch(addProject(values));
+    this.setEditing(true);
+    this.props.dispatch(postProject({
+      projectTitle: values.projectTitle,
+      projectDuedate: values.projectDuedate,
+      projectDetail: values.projectDetail})
+    );
     console.log('testing add-form for projects');
     this.setEditing(false);
   }
