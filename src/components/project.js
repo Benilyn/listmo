@@ -24,7 +24,7 @@ export class Project extends React.Component {
 			<div className="tasks-lists">
 				<div className="project-info">
 					<h2>{this.props.projectTitle}</h2>
-					<span>Due: {this.props.projectDue}</span><br />
+					<span>Due: {this.props.projectDueDate}</span><br />
 					<span>{this.props.projectDetail}</span>
 				</div>
 				<h3>{this.props.title}</h3>
@@ -48,14 +48,14 @@ Project.defaultProps = {
 
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
-//	console.log(state);
-//	console.log(state.AddTask.values);
+	console.log(state);
+	console.log(state.AddTask.values);
 	const project = state.listmoReducer.projects[projectId];
-//	console.log(project.projectTask);
+	console.log(project);
 	return {
 		projectId,
 		projectTitle: project.projectTitle,
-		projectDue: project.projectDue,
+		projectDueDate: project.projectDueDate,
 		projectDetail: project.projectDetail,
 		projectTask: Object.keys(project.projectTask).map(projectTaskId =>
 			project.projectTask[projectTaskId]
