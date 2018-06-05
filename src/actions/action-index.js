@@ -34,6 +34,28 @@ export const postProject = project => dispatch => {
 	}); //fetch(`${API_BASE_URL}/project`
 }; //const postProject
 
+export const getProject = project => dispatch => {
+	fetch(`${API_BASE_URL}/project`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			projectTitle: project.projectTitle,
+			projectDueDate: project.projectDueDate,
+			projectDetail: project.projectDetail,
+			projectTask: project.projectTask
+		})
+	})
+	.then(res => res.json())
+//	.then(console.log(res))
+//	.then(success => dispatch(addProject(success)))
+	.catch(err => {
+		console.log(err);
+		return Promise.reject(err);
+	}); //fetch(`${API_BASE_URL}/project`
+}; //const postProject
+
 export const postTask = task => dispatch => {
 	fetch(`${API_BASE_URL}/task`, {
 		method: 'POST',
