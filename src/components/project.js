@@ -49,7 +49,6 @@ Project.defaultProps = {
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
 	console.log(state);
-	console.log(state.AddTask.values);
 	const project = state.listmoReducer.projects[projectId];
 	console.log(project);
 	return {
