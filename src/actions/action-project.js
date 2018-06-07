@@ -1,11 +1,20 @@
 import {API_BASE_URL} from '../config.js';
 
+// addProject
 export const ADD_PROJECT = 'ADD_PROJECT';
 export const addProject = project => ({
 	type: ADD_PROJECT,
 	project
-}); {/*addProject*/}
+});
 
+// getProjectSuccess
+export const GET_PROJECT_SUCCESS = 'GET_PROJECT_SUCCESS';
+export const getProjectSuccess = projects => ({
+	type: GET_PROJECT_SUCCESS,
+	projects
+});
+
+// postProject
 export const postProject = project => dispatch => {
 	fetch(`${API_BASE_URL}/project`, {
 		method: 'POST',
@@ -17,7 +26,7 @@ export const postProject = project => dispatch => {
 			projectDueDate: project.projectDueDate,
 			projectDetail: project.projectDetail,
 			projectTask: project.projectTask
-		})
+		}) //body: JSON.stringify
 	})
 	.then(res => res.json())
 	.then(success => dispatch(addProject(success)))
@@ -42,9 +51,3 @@ export const getProject = () => dispatch => {
 		return Promise.reject(err);
 	}); //fetch(`${API_BASE_URL}/project`
 }; //const postProject
-
-export const GET_PROJECT_SUCCESS = 'GET_PROJECT_SUCCESS';
-export const getProjectSuccess = projects => ({
-	type: GET_PROJECT_SUCCESS,
-	projects
-}); {/*addProject*/}
