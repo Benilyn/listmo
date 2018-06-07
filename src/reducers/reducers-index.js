@@ -1,11 +1,12 @@
-import * as actions from '../actions/action-index.js';
+import * as project_actions from '../actions/action-project.js';
+import * as task_actions from '../actions/action-task.js';
 
 const initialState = {
 	projects: []
 }; {/*initialState*/}
 
 export const listmoReducer = (state=initialState, action) => {
-	if (action.type === actions.ADD_PROJECT) {
+	if (action.type === project_actions.ADD_PROJECT) {
 		console.log(action);
 		return Object.assign({}, state, {
 			projects: [...state.projects, {
@@ -17,7 +18,7 @@ export const listmoReducer = (state=initialState, action) => {
 		});
 	} {/*actions.ADD_PROJECT*/}
 
-	if (action.type === actions.ADD_TASK) {
+	if (action.type === task_actions.ADD_TASK) {
 		let projects = state.projects.map((project, index) => {
 			if (index !== parseInt(action.projectIndex, 10)) {
 				return project;
@@ -36,7 +37,7 @@ export const listmoReducer = (state=initialState, action) => {
 		});
 	}
 
-	if (action.type === actions.GET_PROJECT_SUCCESS) {
+	if (action.type === project_actions.GET_PROJECT_SUCCESS) {
 		console.log(action.projects);
 		return Object.assign({}, state, {
 			projects: action.projects

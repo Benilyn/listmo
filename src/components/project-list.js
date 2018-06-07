@@ -6,7 +6,7 @@ import {API_BASE_URL} from '../config.js';
 
 import Project from './project';
 import AddProject from './add-project';
-import {addProject, getProject} from '../actions/action-index';
+import {addProject, getProject} from '../actions/action-project.js';
 
 export class ProjectList extends React.Component {
 

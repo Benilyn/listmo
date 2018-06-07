@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 import Task from './task';
 import AddTask from './add-task';
-import {addTask} from '../actions/action-index';
+import {addTask} from '../actions/action-task.js';
 import './project.css';
 
 export class Project extends React.Component {
