@@ -1,4 +1,4 @@
-import * as actions from '../actions/action-index.js';
+import * as user_actions from '../actions/action-user.js';
 
 const initialState = {
 	user: [{
@@ -10,7 +10,7 @@ const initialState = {
 };
 
 export const registerReducer = (state=initialState, action) => {
-	if(action.type === actions.ADD_USER) {
+	if(action.type === user_actions.ADD_USER) {
 		return Object.assign({}, state, {
 			user: [...state.user, {
 				firstName: action.firstName,
@@ -18,6 +18,6 @@ export const registerReducer = (state=initialState, action) => {
 				email: action.email,
 				username: action.username
 			}]
-		}); 
+		});
 	} {/*actions.ADD_USER*/}
 }
