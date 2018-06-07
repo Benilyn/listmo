@@ -10,6 +10,7 @@ export const listmoReducer = (state=initialState, action) => {
 		console.log(action);
 		return Object.assign({}, state, {
 			projects: [...state.projects, {
+				id: action.project.id,
 				projectTitle: action.project.projectTitle,
 				projectDueDate: action.project.projectDueDate,
 				projectDetail: action.project.projectDetail,
@@ -28,7 +29,8 @@ export const listmoReducer = (state=initialState, action) => {
 				projectTask: [...project.projectTask, {
 					taskTitle: action.projectTask.taskTitle,
 					taskDueDate: action.projectTask.taskDueDate,
-					taskDetail: action.projectTask.taskDetail
+					taskDetail: action.projectTask.taskDetail,
+					taskProject: action.projectTask.taskProject
 				}]
 			});
 		});
