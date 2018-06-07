@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addUser, postUser} from '../actions/action-index';
+import {addUser, postUser} from '../actions/action-user.js';
 import {Field, reduxForm, reset} from 'redux-form';
 import {Redirect, withRouter} from 'react-router-dom';
 
@@ -24,7 +24,7 @@ export class RegisterUser extends React.Component {
         	password: values.password})
        	);
         console.log('testing registration-form');
-          	
+
     }
 
     registerUser(isRegistered) {
@@ -35,60 +35,60 @@ export class RegisterUser extends React.Component {
 		if (this.state.isRegistered) {
 			return (
         	<Redirect to="/" />
-        ); 
+        );
 		}
-		
+
 		return (
-			<form 
+			<form
 				className="registration-form"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				<h3>{this.props.form}</h3>
 				<div className="firstName">
-					<Field 
-						component="input" 
-						type="text" 
-						name="firstName" 
-						placeholder="First Name" 
+					<Field
+						component="input"
+						type="text"
+						name="firstName"
+						placeholder="First Name"
 					/>
 				</div>
 				<div className="lasttName">
-					<Field 
-						component="input" 
-						type="text" 
-						name="lastName" 
-						placeholder="Last Name" 
+					<Field
+						component="input"
+						type="text"
+						name="lastName"
+						placeholder="Last Name"
 					/>
 				</div>
 				<div className="email">
-					<Field 
-						component="input" 
-						type="text" 
-						name="email" 
-						placeholder="Email" 
+					<Field
+						component="input"
+						type="text"
+						name="email"
+						placeholder="Email"
 					/>
 				</div>
 				<div className="userName">
-					<Field 
-						component="input" 
-						type="text" 
-						name="userName" 
-						placeholder="Username" 
+					<Field
+						component="input"
+						type="text"
+						name="userName"
+						placeholder="Username"
 					/>
 				</div>
 				<div className="password">
-					<Field 
-						component="input" 
-						type="password" 
-						name="password" 
-						placeholder="Password" 
+					<Field
+						component="input"
+						type="password"
+						name="password"
+						placeholder="Password"
 					/>
 				</div>
 				<div className="confirmPassword">
-					<Field 
-						component="input" 
-						type="password" 
-						name="confirmPassword" 
-						placeholder="Confirm Password" 
+					<Field
+						component="input"
+						type="password"
+						name="confirmPassword"
+						placeholder="Confirm Password"
 					/>
 				</div>
 				 <div>
@@ -99,11 +99,11 @@ export class RegisterUser extends React.Component {
 			          Clear Values
 			        </button>
 			      </div>
-				
+
 			</form>
 		)
 	}
-	
+
 }
 
 const mapStateToProps = state => {

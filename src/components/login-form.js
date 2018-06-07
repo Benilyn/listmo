@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Field, reduxForm, SubmissionError} from 'redux-form';
 import {Redirect, withRouter} from 'react-router-dom';
 import {API_BASE_URL} from '../config';
-import {loginUser} from '../actions/action-index';
+import {loginUser} from '../actions/action-user.js';
 
 export class LoginForm extends React.Component {
 	constructor(props) {
@@ -20,10 +20,10 @@ export class LoginForm extends React.Component {
         console.log(values);
         this.loginUser(true);
         this.props.dispatch(loginUser(values.userName, values.password));
-        console.log('testing login');     	
+        console.log('testing login');
     }
 
-    
+
     loginUser(isLoggedIn) {
 		this.setState({isLoggedIn});
 	} //loginUser

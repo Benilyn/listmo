@@ -43,5 +43,5 @@ export default class AddForm extends React.Component {
 			</form>
 		);
 	}
-	
+
 }
