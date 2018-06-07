@@ -51,7 +51,7 @@ export class AddProject extends React.Component {
         </div>
         <div  className="project-duedate">
           <Field
-              name="projectDuedate"
+              name="projectDueDate"
               component="input"
               type="date"
               placeholder="Due Date"

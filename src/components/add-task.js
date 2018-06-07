@@ -54,7 +54,7 @@ export class AddTask extends React.Component {
         </div>
         <div  className="task-duedate">
           <Field
-              name="taskDuedate"
+              name="taskDueDate"
               component="input"
               type="date"
               placeholder="Due Date"
@@ -85,7 +85,7 @@ export class AddTask extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+//  console.log(state);
   return {
     addTask: state.projectTask,
     addProject: state.projects
