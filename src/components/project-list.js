@@ -4,14 +4,9 @@ import {Link} from 'react-router-dom';
 import {API_BASE_URL} from '../config.js';
 
 
-<<<<<<< HEAD
-import AddForm from './add-form';
-import {addProject} from '../actions/action-index';
-=======
 import Project from './project';
 import AddProject from './add-project';
 import {addProject, getProject} from '../actions/action-project.js';
->>>>>>> project-details
 
 export class ProjectList extends React.Component {
 
@@ -36,6 +31,7 @@ export class ProjectList extends React.Component {
 
 		return (
 			<div className="project-list">
+				<h3> Project </h3>
 				<ul className="project-container">
 					{projectList}
 				</ul>
