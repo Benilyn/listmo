@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import Task from './task';
 import AddTask from './add-task';
@@ -20,6 +22,10 @@ export class Project extends React.Component {
 	deleteProject(delProject) {
 		console.log('delete project ', delProject.id);
 		this.props.dispatch(deleteProject(delProject.id));
+		const { history } = this.props;
+		history.push('/project-list');
+//		<Redirect to="/project-list" />
+
 	}
 
 	render() {
@@ -62,7 +68,7 @@ Project.defaultProps = {
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
 	const project = state.listmoReducer.projects[projectId];
-	console.log(project);
+//	console.log(project);
 	delProject = project;
 	return {
 		projectId,
@@ -75,4 +81,4 @@ const mapStateToProps = (state, props) => {
 	}
 }
 
-export default connect(mapStateToProps)(Project);
+export default withRouter(connect(mapStateToProps)(Project));
