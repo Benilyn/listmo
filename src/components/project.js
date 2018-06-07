@@ -5,11 +5,21 @@ import Task from './task';
 import AddTask from './add-task';
 import {addTask} from '../actions/action-task.js';
 import './project.css';
+import {deleteProject} from '../actions/action-project.js';
 
+
+let delProject;
 export class Project extends React.Component {
+
+
 	addTask(taskTitle) {
 		console.log(taskTitle);
 		this.props.dispatch(addTask(taskTitle, this.props.projectId));
+	}
+
+	deleteProject(delProject) {
+		console.log('delete project ', delProject.id);
+		this.props.dispatch(deleteProject(delProject.id));
 	}
 
 	render() {
@@ -24,7 +34,11 @@ export class Project extends React.Component {
 				<div className="project-info">
 					<h2>{this.props.projectTitle}</h2>
 					<span>Due: {this.props.projectDueDate}</span><br />
-					<span>{this.props.projectDetail}</span>
+					<span>{this.props.projectDetail}</span><br />
+					<button id="delete-project"
+							onClick={() => this.deleteProject(delProject)}>
+							Delete
+					</button>
 				</div>
 				<h3>{this.props.title}</h3>
 				{projectTask}
@@ -47,9 +61,9 @@ Project.defaultProps = {
 
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
-	console.log(state);
 	const project = state.listmoReducer.projects[projectId];
 	console.log(project);
+	delProject = project;
 	return {
 		projectId,
 		projectTitle: project.projectTitle,

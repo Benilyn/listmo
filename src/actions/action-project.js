@@ -36,7 +36,7 @@ export const postProject = project => dispatch => {
 	}); //fetch(`${API_BASE_URL}/project`
 }; //const postProject
 
-
+// getProject
 export const getProject = () => dispatch => {
 	fetch(`${API_BASE_URL}/project`, {
 		method: 'GET',
@@ -46,6 +46,18 @@ export const getProject = () => dispatch => {
 	})
 	.then(res => res.json())
 	.then(projects => dispatch(getProjectSuccess(projects)))
+	.catch(err => {
+		console.log(err);
+		return Promise.reject(err);
+	}); //fetch(`${API_BASE_URL}/project`
+}; //const postProject
+
+// deleteProject
+export const deleteProject = projectId => dispatch => {
+	fetch(`${API_BASE_URL}/project/${projectId}`, {
+		method: 'DELETE'
+	})
+	.then(res => res.json())
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
