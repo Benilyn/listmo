@@ -16,6 +16,7 @@ export const getProjectSuccess = projects => ({
 
 // postProject
 export const postProject = project => dispatch => {
+	console.log(project);
 	fetch(`${API_BASE_URL}/project`, {
 		method: 'POST',
 		headers: {
@@ -57,7 +58,7 @@ export const deleteProject = projectId => dispatch => {
 	fetch(`${API_BASE_URL}/project/${projectId}`, {
 		method: 'DELETE'
 	})
-	.then(res => res.json())
+	.then(res => dispatch(getProject()))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
