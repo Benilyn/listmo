@@ -22,22 +22,28 @@ export class Task extends React.Component {
 	render() {
 		let details;
 		if(!this.state.hidden === true) {
-			details = <div onClick={() => this.hideTaskDetails(true)}>{this.props.date}</div>
+			details = <div onClick={() => this.hideTaskDetails(true)}>
+				<span>Due: {this.props.taskDueDate}</span><br />
+				<span>{this.props.taskDetail}</span>
+			</div>
 		}
 
 		return (
 			<div className="task-info" >
-				<h4 onClick={() => this.hideTaskDetails(false)}>{this.props.text}</h4>
+				<h4 onClick={() => this.hideTaskDetails(false)}>{this.props.taskTitle}</h4>
 				{details}
 			</div>
 		)
 	}
-	
+
 }
 
 Task.defaultProps = {
-	text: '',
-	date: ''
+	taskTitle: '',
+	taskDueDate: '',
+	taskDetail: ''
 };
+
+
 
 export default connect()(Task);

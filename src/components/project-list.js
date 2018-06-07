@@ -1,40 +1,62 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {API_BASE_URL} from '../config.js';
 
+
+<<<<<<< HEAD
 import AddForm from './add-form';
 import {addProject} from '../actions/action-index';
+=======
+import Project from './project';
+import AddProject from './add-project';
+import {addProject, getProject} from '../actions/action-project.js';
+>>>>>>> project-details
 
 export class ProjectList extends React.Component {
-	addProject(title) {
-		this.props.dispatch(addProject(title));
+
+	componentDidMount() {
+		this.props.dispatch(getProject())
+	} //*componentDidMount
+
+	addProject(projectTitle) {
+		this.props.dispatch(addProject(projectTitle));
 	}
 
 	render() {
-		const projects = this.props.projects.map((project, index) =>
-			<li className="project-link" key={index}>
-				<Link to={`/project-list/${index}`} {...project}>
-					{project.title}
-				</Link>
-			</li>
-		); {/*const projects*/}
+		let projectList = this.props.projects.map((project, index) => {
+			return(
+				<li className="project-link" key={index}>
+					<Link to={`/project-list/${index}`}>
+						{project.projectTitle}
+					</Link>
+				</li>
+			) //return
+		}) //*projectList
 
 		return (
 			<div className="project-list">
+				<ul className="project-container">
+					{projectList}
+				</ul>
+				<div className="add-project">
+					<AddProject
+						type="project"
+						onAdd={projectTitle => this.addProject(projectTitle)}
+					/>
+				</div>
+{/*
 				<ul className="project-list">
 					<h3>{this.props.title}</h3>
 					{projects}
-
-					<div className="add-project">
-						<AddForm
-							type="project"
-							onAdd={title => this.addProject(title)}
-						/>	
-					</div>
 				</ul>
+*/}
+
+
+
 			</div>
 		); {/*return*/}
-	}	
+	}
 }
 
 ProjectList.defaultProps = {
@@ -42,7 +64,8 @@ ProjectList.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    projects: state.projects || []
+    projects: state.listmoReducer.projects || []
+
 });
 
 export default connect(mapStateToProps)(ProjectList);
