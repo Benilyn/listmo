@@ -17,10 +17,9 @@ export class AddProject extends React.Component {
     this.setEditing(true);
     this.props.dispatch(postProject({
       projectTitle: values.projectTitle,
-      projectDuedate: values.projectDuedate,
+      projectDueDate: values.projectDueDate,
       projectDetail: values.projectDetail})
     );
-    console.log('testing add-form for projects');
     this.setEditing(false);
   }
 

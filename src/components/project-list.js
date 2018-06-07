@@ -16,7 +16,7 @@ export class ProjectList extends React.Component {
 
 	addProject(projectTitle) {
 		this.props.dispatch(addProject(projectTitle));
-	}
+	} //addProject(projectTitle)
 
 	render() {
 		let projectList = this.props.projects.map((project, index) => {
@@ -41,15 +41,6 @@ export class ProjectList extends React.Component {
 						onAdd={projectTitle => this.addProject(projectTitle)}
 					/>
 				</div>
-{/*
-				<ul className="project-list">
-					<h3>{this.props.title}</h3>
-					{projects}
-				</ul>
-*/}
-
-
-
 			</div>
 		); {/*return*/}
 	}
