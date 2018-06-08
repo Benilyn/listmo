@@ -7,10 +7,10 @@ import Task from './task';
 import AddTask from './add-task';
 import {addTask} from '../actions/action-task.js';
 import './project.css';
-import {deleteProject} from '../actions/action-project.js';
+import {deleteProject, getProject} from '../actions/action-project.js';
 
 
-let delProject;
+let editProject;
 export class Project extends React.Component {
 
 
@@ -19,13 +19,17 @@ export class Project extends React.Component {
 		this.props.dispatch(addTask(taskTitle, this.props.projectId));
 	}
 
-	deleteProject(delProject) {
-		console.log('delete project ', delProject.id);
-		this.props.dispatch(deleteProject(delProject.id));
+	deleteProject(editProject) {
+		console.log('delete project ', editProject.id);
+		this.props.dispatch(deleteProject(editProject.id));
 		const { history } = this.props;
 		history.push('/project-list');
 //		<Redirect to="/project-list" />
 
+	}
+
+	componentDidMount() {
+		this.props.dispatch(getProject());
 	}
 
 	render() {
@@ -42,7 +46,7 @@ export class Project extends React.Component {
 					<span>Due: {this.props.projectDueDate}</span><br />
 					<span>{this.props.projectDetail}</span><br />
 					<button id="delete-project"
-							onClick={() => this.deleteProject(delProject)}>
+							onClick={() => this.deleteProject(editProject)}>
 							Delete
 					</button>
 				</div>
@@ -51,6 +55,7 @@ export class Project extends React.Component {
 				<div className="add-task">
 					<AddTask
 						type="task"
+						project={editProject}
 						onAdd={taskTitle => this.addTask(taskTitle)}
 					/>
 				</div>
@@ -67,17 +72,17 @@ Project.defaultProps = {
 
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
-	const project = state.listmoReducer.projects[projectId];
+	const project = state.listmoReducer.projects[projectId] || {};
 //	console.log(project);
-	delProject = project;
+	editProject = project;
 	return {
 		projectId,
 		projectTitle: project.projectTitle,
 		projectDueDate: project.projectDueDate,
 		projectDetail: project.projectDetail,
-		projectTask: Object.keys(project.projectTask).map(projectTaskId =>
+		projectTask: project.projectTask ? Object.keys(project.projectTask).map(projectTaskId =>
 			project.projectTask[projectTaskId]
-		)
+		): []
 	}
 }
 
