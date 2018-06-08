@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addTask, postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset} from 'redux-form';
 
+let project;
 export class AddTask extends React.Component {
   constructor(props) {
     super(props);
@@ -17,9 +18,9 @@ export class AddTask extends React.Component {
     this.setEditing(true);
     this.props.dispatch(postTask({
       taskTitle: values.taskTitle,
-      taskDuedate: values.taskDuedate,
+      taskDueDate: values.taskDueDate,
       taskDetail: values.taskDetail,
-      taskProject: values.taskProject})
+      taskProject: this.props.project.id})
     );
     console.log('testing add-form for projects');
     this.setEditing(false);
@@ -85,10 +86,8 @@ export class AddTask extends React.Component {
 }
 
 const mapStateToProps = state => {
-//  console.log(state);
   return {
-    addTask: state.projectTask,
-    addProject: state.projects
+    addTask: state.projectTask
   };
 };
 
