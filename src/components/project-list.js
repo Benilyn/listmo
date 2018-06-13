@@ -6,7 +6,7 @@ import {API_BASE_URL} from '../config.js';
 
 import Project from './project';
 import AddProject from './add-project';
-import {addProject, getProject , deleteProject} from '../actions/action-project.js';
+import {addProject, getProject , deleteProject, editProject} from '../actions/action-project.js';
 
 export class ProjectList extends React.Component {
 
@@ -23,6 +23,8 @@ export class ProjectList extends React.Component {
 		this.props.dispatch(deleteProject(project.id));
 	}
 
+
+
 	render() {
 		let projectList = this.props.projects.map((project, index) => {
 			return(
@@ -34,6 +36,13 @@ export class ProjectList extends React.Component {
 							onClick={() => this.deleteProject(project)}>
 							Delete
 					</button>
+					<Link to={`/project-list/edit/${index}`}>
+						<button id="edit-project">
+							Edit
+						</button>
+					</Link>
+
+
 				</li>
 			) //return
 		}) //*projectList

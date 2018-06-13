@@ -7,6 +7,7 @@ import LandingPage from './landing-page';
 import RegisterUser from './register-user';
 import ProjectList from './project-list';
 import Project from './project';
+import EditProject from './edit-project';
 
 export class Listmo extends React.Component {
 	render() {
@@ -17,10 +18,11 @@ export class Listmo extends React.Component {
 	        	<Route exact path="/register" component={RegisterUser} />
 	            <Route exact path="/project-list" component={ProjectList} />
 	            <Route exact path="/project-list/:projectId" component={Project} />
+							<Route exact path="/project-list/edit/:projectId" component={EditProject} />
 	        </div>
     	);
 	}
-	
+
 }
 
 export default withRouter(connect()(Listmo))
