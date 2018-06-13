@@ -28,13 +28,13 @@ export const postProject = project => dispatch => {
 			projectDetail: project.projectDetail,
 			projectTask: project.projectTask
 		}) //body: JSON.stringify
-	})
+	}) //fetch(`${API_BASE_URL}/project`
 	.then(res => res.json())
 	.then(success => dispatch(addProject(success)))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
-	}); //fetch(`${API_BASE_URL}/project`
+	}); //.catch
 }; //const postProject
 
 // getProject
@@ -44,23 +44,47 @@ export const getProject = () => dispatch => {
 		headers: {
 			'Content-Type': 'application/json'
 		}
-	})
+	}) //fetch(`${API_BASE_URL}/project`
 	.then(res => res.json())
 	.then(projects => dispatch(getProjectSuccess(projects)))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
-	}); //fetch(`${API_BASE_URL}/project`
+	}); //catch
 }; //const postProject
 
 // deleteProject
 export const deleteProject = projectId => dispatch => {
 	fetch(`${API_BASE_URL}/project/${projectId}`, {
 		method: 'DELETE'
-	})
+	}) //fetch
 	.then(res => dispatch(getProject()))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
-	}); //fetch(`${API_BASE_URL}/project`
+	}); //.catch
 }; //const postProject
+
+//editProject
+export const editProject = project => dispatch => {
+	fetch(`${API_BASE_URL}/project/${project.id}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			projectTitle: project.projectTitle,
+			projectDueDate: project.projectDueDate,
+			projectDetail: project.projectDetail,
+			projectTask: project.projectTask
+		}) //body: JSON.stringify
+	}) //fetch (`${API_BASE_URL}/project/${projectId}`
+		.then(res => res.json())
+		.then(res => dispatch(getProject()))
+		.catch(err => {
+			console.log(err);
+			return Promise.reject(err);
+		}); //.catch
+
+
+}; //editProject
