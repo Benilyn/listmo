@@ -73,6 +73,7 @@ export const editProject = project => dispatch => {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
+			id: project.id,
 			projectTitle: project.projectTitle,
 			projectDueDate: project.projectDueDate,
 			projectDetail: project.projectDetail,
