@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {editProject, postProject} from '../actions/action-project.js';
-import {Field, reduxForm, reset} from 'redux-form';
+import {Field, reduxForm, reset, change} from 'redux-form';
 
 export class EditProject extends React.Component {
   constructor(props) {
@@ -11,6 +11,15 @@ export class EditProject extends React.Component {
     }
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  componentDidMount() {
+    console.log(this.props.project);
+    this.props.dispatch(change("EditProject", "projectTitle",this.props.project.projectTitle));
+    this.props.dispatch(change("EditProject", "projectDueDate",this.props.project.projectDueDate));
+    this.props.dispatch(change("EditProject", "projectDetail",this.props.project.projectDetail));
+  } //*componentDidMount
+
+
 
   onSubmit(values) {
     console.log(values);
@@ -48,7 +57,7 @@ export class EditProject extends React.Component {
           <Field
               name="projectDueDate"
               component="input"
-              type="date"
+              type="text"
               placeholder="Due Date"
           />
         </div>
@@ -80,12 +89,8 @@ const mapStateToProps = (state, props) => {
 	const project = state.listmoReducer.projects[projectId] || {};
 	return {
 		projectId,
-		projectTitle: project.projectTitle,
-		projectDueDate: project.projectDueDate,
-		projectDetail: project.projectDetail,
-		projectTask: project.projectTask ? Object.keys(project.projectTask).map(projectTaskId =>
-			project.projectTask[projectTaskId]
-		): []
+		project,
+    initialValues: project
 	}
 }
 
