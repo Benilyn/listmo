@@ -1,36 +1,35 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {editProject, postProject} from '../actions/action-project.js';
+import {editTask, postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
 
-export class EditProject extends React.Component {
+export class EditTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isRedirect: false
+      setRedirect: false
     }
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
-    console.log(this.props.project);
-    this.props.dispatch(change("EditProject", "projectTitle",this.props.project.projectTitle));
-    this.props.dispatch(change("EditProject", "projectDueDate",this.props.project.projectDueDate));
-    this.props.dispatch(change("EditProject", "projectDetail",this.props.project.projectDetail));
+    console.log(this.props.task);
+    this.props.dispatch(change("EditTask", "taskTitle",this.props.task.taskTitle));
+    this.props.dispatch(change("EditTask", "taskDueDate",this.props.task.taskDueDate));
+    this.props.dispatch(change("EditTask", "taskDetail",this.props.task.taskDetail));
   } //*componentDidMount
 
 
 
   onSubmit(values) {
     console.log(values);
-    console.log('editing project', this.props.project.id);
-    this.props.dispatch(editProject({
-      id: this.props.project.id,
-      projectTitle: values.projectTitle,
-      projectDueDate: values.projectDueDate,
-      projectDetail: values.projectDetail,
-      projectTask: values.projectTask})
+    console.log('editing task', this.props.task._id);
+    this.props.dispatch(editTask({
+      id: this.props.task._id,
+      taskTitle: values.taskTitle,
+      taskDueDate: values.taskDueDate,
+      taskDetail: values.taskDetail})
     );
     this.setRedirect(true);
 
@@ -52,27 +51,27 @@ export class EditProject extends React.Component {
 
 
     return (
-      <form className="add-project-form"
+      <form className="add-task-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="project-title">
+        <div className="task-title">
           <Field
-              name="projectTitle"
+              name="taskTitle"
               component="input"
               type="text"
               placeholder="Title"
           />
         </div>
-        <div  className="project-duedate">
+        <div  className="task-duedate">
           <Field
-              name="projectDueDate"
+              name="taskDueDate"
               component="input"
               type="text"
               placeholder="Due Date"
           />
         </div>
-        <div  className="project-detail">
+        <div  className="task-detail">
           <Field
-              name="projectDetail"
+              name="taskDetail"
               component="input"
               type="text"
               placeholder="Details"
@@ -91,17 +90,18 @@ export class EditProject extends React.Component {
   }
 }
 const mapStateToProps = (state, props) => {
-	const projectId = props.match.params.projectId;
-	const project = state.listmoReducer.projects[projectId] || {};
+	const taskId = props.match.params.taskId;
+  const projectId = props.match.params.projectId;
+	const task = state.listmoReducer.projects[projectId].projectTask[taskId] || {};
 	return {
-		projectId,
-		project,
-    initialValues: project
+		taskId,
+		task,
+    initialValues: task
 	}
 }
 
-EditProject = connect(mapStateToProps)(EditProject);
+EditTask = connect(mapStateToProps)(EditTask);
 
 export default reduxForm({
-  form: 'EditProject'
-})(EditProject);
+  form: 'EditTask'
+})(EditTask);

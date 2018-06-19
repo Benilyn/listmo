@@ -45,6 +45,11 @@ export class Project extends React.Component {
 						onClick={() => this.deleteTask(task)}>
 						Delete
 				</button>
+				<Link to={`/task/edit/${this.props.projectId}/${index}`}>
+					<button id="edit-task">
+						Edit
+					</button>
+				</Link>
 			</li>
 
 		);

@@ -9,6 +9,7 @@ import ProjectList from './project-list';
 import Project from './project';
 import EditProject from './edit-project';
 import Task from './task';
+import EditTask from './edit-task';
 
 export class Listmo extends React.Component {
 	render() {
@@ -21,7 +22,7 @@ export class Listmo extends React.Component {
 	            <Route exact path="/project-list/:projectId" component={Project} />
 							<Route exact path="/project-list/edit/:projectId" component={EditProject} />
 
-	            <Route exact path="/task" component={Task} />
+	            <Route exact path="/task/edit/:projectId/:taskId" component={EditTask} />
 	        </div>
     	);
 	}

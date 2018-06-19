@@ -63,3 +63,27 @@ export const deleteTask = taskId => dispatch => {
 		return Promise.reject(err);
 	}); //.catch
 }; //const deleteTask
+
+//editTask
+export const editTask = task => dispatch => {
+	fetch(`${API_BASE_URL}/task/${task.id}`, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			id: task.id,
+			taskTitle: task.taskTitle,
+			taskDueDate: task.taskDueDate,
+			taskDetail: task.taskDetail
+		}) //body: JSON.stringify
+	}) //fetch (`${API_BASE_URL}/task/${taskId}`
+		.then(res => res.json())
+		.then(res => dispatch(getProject()))
+		.catch(err => {
+			console.log(err);
+			return Promise.reject(err);
+		}); //.catch
+
+
+}; //editTask
