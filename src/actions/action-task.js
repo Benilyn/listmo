@@ -58,7 +58,6 @@ export const deleteTask = taskId => dispatch => {
 		method: 'DELETE'
 	}) //fetch
 	.then(res => dispatch(getProject()))
-	.then(res => dispatch(getTask()))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
