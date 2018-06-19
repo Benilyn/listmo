@@ -46,6 +46,13 @@ export const listmoReducer = (state=initialState, action) => {
 		})
 	}
 
+	if (action.type === task_actions.GET_TASK_SUCCESS) {
+		console.log(action.tasks);
+		return Object.assign({}, state, {
+			tasks: action.tasks
+		})
+	}
+
 	return state;
 
 }

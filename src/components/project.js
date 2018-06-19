@@ -1,11 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import {Redirect, withRouter, Link} from 'react-router-dom';
 
 import Task from './task';
 import AddTask from './add-task';
-import {addTask} from '../actions/action-task.js';
+import {addTask, deleteTask} from '../actions/action-task.js';
 import './project.css';
 import {deleteProject, getProject} from '../actions/action-project.js';
 
@@ -32,10 +31,20 @@ export class Project extends React.Component {
 		this.props.dispatch(getProject());
 	}
 
+	deleteTask(task) {
+		console.log(task);
+		console.log('delete task ', task._id);
+		this.props.dispatch(deleteTask(task._id));
+	}
+
 	render() {
-		const projectTask = this.props.projectTask.map((taskTitle, index) =>
+		const projectTask = this.props.projectTask.map((task, index) =>
 			<li className="task-name" key={index}>
-				<Task {...taskTitle} />
+				<Task {...task} />
+				<button id="delete-task"
+						onClick={() => this.deleteTask(task)}>
+						Delete
+				</button>
 			</li>
 
 		);
@@ -45,11 +54,11 @@ export class Project extends React.Component {
 					<h2>{this.props.projectTitle}</h2>
 					<span>Due: {this.props.projectDueDate}</span><br />
 					<span>{this.props.projectDetail}</span><br />
-					<button id="delete-project"
+{/*					<button id="delete-project"
 							onClick={() => this.deleteProject(editProject)}>
 							Delete
 					</button>
-				</div>
+*/}				</div>
 				<h3>{this.props.title}</h3>
 				{projectTask}
 				<div className="add-task">

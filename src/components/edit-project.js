@@ -71,10 +71,7 @@ export class EditProject extends React.Component {
         </div>
         <div className="buttons">
           <button type="submit">
-            Add
-          </button>
-          <button type="button" onClick={reset}>
-            clear
+            Submit
           </button>
           <button type="button" onClick = {() => this.setEditing(false)}>
             Cancel

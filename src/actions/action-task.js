@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config.js';
-import {addProject} from '../actions/action-project.js';
+import {addProject, getProject} from '../actions/action-project.js';
 
 export const ADD_TASK = 'ADD_TASK';
 export const addTask = (projectTask, projectIndex) => ({
@@ -7,6 +7,13 @@ export const addTask = (projectTask, projectIndex) => ({
 	projectTask,
 	projectIndex
 }); {/*addProject*/}
+
+// getTaskSuccess
+export const GET_TASK_SUCCESS = 'GET_TASK_SUCCESS';
+export const getTaskSuccess = tasks => ({
+	type: GET_TASK_SUCCESS,
+	tasks
+});
 
 export const postTask = task => dispatch => {
 	fetch(`${API_BASE_URL}/task`, {
@@ -22,9 +29,38 @@ export const postTask = task => dispatch => {
 		})
 	})
 	.then(res => res.json())
-	.then(success => dispatch(addProject(success)))
+	.then(success => dispatch(getProject()))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
 	}); //fetch(`${API_BASE_URL}/task`
 }; //const postTask
+
+// getTask
+export const getTask = () => dispatch => {
+	fetch(`${API_BASE_URL}/task`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	}) //fetch(`${API_BASE_URL}/task`
+	.then(res => res.json())
+	.then(tasks => dispatch(getTaskSuccess(tasks)))
+	.catch(err => {
+		console.log(err);
+		return Promise.reject(err);
+	}); //catch
+}; //const getTask
+
+// deleteTask
+export const deleteTask = taskId => dispatch => {
+	fetch(`${API_BASE_URL}/task/${taskId}`, {
+		method: 'DELETE'
+	}) //fetch
+	.then(res => dispatch(getProject()))
+	.then(res => dispatch(getTask()))
+	.catch(err => {
+		console.log(err);
+		return Promise.reject(err);
+	}); //.catch
+}; //const deleteTask

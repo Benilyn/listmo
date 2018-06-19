@@ -8,6 +8,7 @@ import RegisterUser from './register-user';
 import ProjectList from './project-list';
 import Project from './project';
 import EditProject from './edit-project';
+import Task from './task';
 
 export class Listmo extends React.Component {
 	render() {
@@ -19,6 +20,8 @@ export class Listmo extends React.Component {
 	            <Route exact path="/project-list" component={ProjectList} />
 	            <Route exact path="/project-list/:projectId" component={Project} />
 							<Route exact path="/project-list/edit/:projectId" component={EditProject} />
+
+	            <Route exact path="/task" component={Task} />
 	        </div>
     	);
 	}
