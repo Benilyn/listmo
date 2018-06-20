@@ -4,6 +4,7 @@ import {Redirect, withRouter, Link} from 'react-router-dom';
 
 import Task from './task';
 import AddTask from './add-task';
+import EditTask from './edit-task';
 import {addTask, deleteTask} from '../actions/action-task.js';
 import './project.css';
 import {deleteProject, getProject} from '../actions/action-project.js';
@@ -31,6 +32,7 @@ export class Project extends React.Component {
 		this.props.dispatch(getProject());
 	}
 
+
 	deleteTask(task) {
 		console.log(task);
 		console.log('delete task ', task._id);
@@ -45,7 +47,7 @@ export class Project extends React.Component {
 						onClick={() => this.deleteTask(task)}>
 						Delete
 				</button>
-				<Link to={`/task/edit/${this.props.projectId}/${index}`}>
+							<Link to={`/task/edit/${this.props.projectId}/${index}`}>
 					<button id="edit-task">
 						Edit
 					</button>
@@ -73,6 +75,9 @@ export class Project extends React.Component {
 						onAdd={taskTitle => this.addTask(taskTitle)}
 					/>
 				</div>
+				<button type="button" onClick={() => this.props.history.go(-1)}>
+					Back
+				</button>
 			</div>
 		)
 	}

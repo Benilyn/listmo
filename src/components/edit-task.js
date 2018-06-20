@@ -32,6 +32,8 @@ export class EditTask extends React.Component {
       taskDetail: values.taskDetail})
     );
     this.setRedirect(true);
+//    const { history } = this.props;
+//		history.push(`/project-list/{:projectId}`);
 
   }
 
@@ -45,7 +47,7 @@ export class EditTask extends React.Component {
   render() {
     if (this.state.isRedirect) {
 			return (
-        	<Redirect to="/project-list" />
+        	<Redirect to={`/project-list/${this.props.projectId}`} />
         );
 		}
 
@@ -96,6 +98,7 @@ const mapStateToProps = (state, props) => {
 	return {
 		taskId,
 		task,
+    projectId,
     initialValues: task
 	}
 }

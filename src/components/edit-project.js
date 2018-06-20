@@ -33,6 +33,7 @@ export class EditProject extends React.Component {
       projectTask: values.projectTask})
     );
     this.setRedirect(true);
+    
 
   }
 

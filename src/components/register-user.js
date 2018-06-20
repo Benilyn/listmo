@@ -95,8 +95,11 @@ export class RegisterUser extends React.Component {
 			        <button type="submit">
 			          Submit
 			        </button>
-			        <button type="button" onClick={reset}>
+			        <button type="button" onClick={() => this.props.dispatch(reset('RegisterUser'))}>
 			          Clear Values
+			        </button>
+							<button type="button" onClick={() => this.props.history.go(-1)}>
+			          Back
 			        </button>
 			      </div>
 
