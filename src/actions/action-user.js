@@ -28,22 +28,3 @@ export const postUser = user => dispatch => {
 		return Promise.reject(err);
 	});
 };
-
-
-export const loginUser = (userName, password) => dispatch => {
-	fetch(`${API_BASE_URL}/login`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-        	userName,
-        	password
-		})
-	})
-	.then(res => res.json())
-	.catch(err => {
-		console.log(err);
-		return Promise.reject(err);
-	});
-};

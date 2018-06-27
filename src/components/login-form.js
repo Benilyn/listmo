@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Field, reduxForm, SubmissionError} from 'redux-form';
-import {Redirect, withRouter} from 'react-router-dom';
-import {API_BASE_URL} from '../config';
-import {loginUser} from '../actions/action-user.js';
+import {Field, reduxForm} from 'redux-form';
+import {Redirect} from 'react-router-dom';
+import {loginUser} from '../actions/action-auth.js';
 
 export class LoginForm extends React.Component {
 	constructor(props) {
@@ -16,11 +15,10 @@ export class LoginForm extends React.Component {
 
 
 	onSubmit(values) {
-
-        console.log(values);
         this.loginUser(true);
         this.props.dispatch(loginUser(values.userName, values.password));
         console.log('testing login');
+
     }
 
 
@@ -56,7 +54,7 @@ export class LoginForm extends React.Component {
 							type="text"
 							name="userName"
 							id="userName"
-							placeholder="UserName"
+							placeholder="Username"
 						/>
 					</div>
 					<div className="loginPassword">
@@ -87,5 +85,4 @@ LoginForm = connect(mapStateToProps)(LoginForm);
 
 export default reduxForm({
 	form: 'login'
-//	onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'userName'))
 })(LoginForm);

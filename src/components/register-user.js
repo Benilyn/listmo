@@ -83,7 +83,7 @@ export class RegisterUser extends React.Component {
 						placeholder="Password"
 					/>
 				</div>
-				<div className="confirmPassword">
+{/*				<div className="confirmPassword">
 					<Field
 						component="input"
 						type="password"
@@ -91,7 +91,7 @@ export class RegisterUser extends React.Component {
 						placeholder="Confirm Password"
 					/>
 				</div>
-				 <div>
+*/}				 <div>
 			        <button type="submit">
 			          Submit
 			        </button>

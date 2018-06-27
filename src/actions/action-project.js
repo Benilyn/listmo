@@ -38,8 +38,8 @@ export const postProject = project => dispatch => {
 }; //const postProject
 
 // getProject
-export const getProject = () => dispatch => {
-	fetch(`${API_BASE_URL}/project`, {
+export const getProject = (user) => dispatch => {
+	fetch(`${API_BASE_URL}/project/${user.id}`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json'

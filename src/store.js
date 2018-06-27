@@ -3,11 +3,14 @@ import thunk from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form';
 import {listmoReducer} from './reducers/reducers-index.js';
 import {registerReducer} from './reducers/reducers-forms.js';
+import {authReducer} from './reducers/reducers-auth.js';
 
 export default createStore(
     combineReducers({
         form: formReducer,
-        listmoReducer
+        listmoReducer,
+        authReducer
+
     }),
     applyMiddleware(thunk)
 );

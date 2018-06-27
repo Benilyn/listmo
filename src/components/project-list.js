@@ -11,7 +11,10 @@ import {addProject, getProject , deleteProject, editProject} from '../actions/ac
 export class ProjectList extends React.Component {
 
 	componentDidMount() {
-		this.props.dispatch(getProject())
+		console.log(this.props.user);
+		if(this.props.user) {
+			this.props.dispatch(getProject(this.props.user))
+		}
 	} //*componentDidMount
 
 	addProject(projectTitle) {
@@ -68,9 +71,13 @@ ProjectList.defaultProps = {
     title: 'Project List'
 };
 
-const mapStateToProps = state => ({
-    projects: state.listmoReducer.projects || []
+const mapStateToProps = state => {
+	console.log(state);
+	return ({
 
-});
+    projects: state.listmoReducer.projects || [],
+		user: state.authReducer.currentUser
+
+})};
 
 export default connect(mapStateToProps)(ProjectList);
