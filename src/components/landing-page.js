@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-
+import './landing-page.css';
 import LoginForm from './login-form';
 
 export class LandingPage extends React.Component {
-	
+
 
 	render() {
 		return (
@@ -15,7 +15,7 @@ export class LandingPage extends React.Component {
 			</div>
 		)
 	}
-	
+
 }
 
 export default connect()(LandingPage);

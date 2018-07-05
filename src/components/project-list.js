@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {API_BASE_URL} from '../config.js';
 
-
+import './project-list.css';
 import Project from './project';
 import AddProject from './add-project';
 import {addProject, getProject , deleteProject, editProject} from '../actions/action-project.js';
@@ -35,16 +35,17 @@ export class ProjectList extends React.Component {
 					<Link to={`/project-list/${index}`}>
 						{project.projectTitle}
 					</Link>
-					<button id="delete-project"
-							onClick={() => this.deleteProject(project)}>
-							Delete
-					</button>
-					<Link to={`/project-list/edit/${index}`}>
-						<button id="edit-project">
-							Edit
+					<div className="project-list-buttons">
+						<button id="delete-project"
+								onClick={() => this.deleteProject(project)}>
+								Delete
 						</button>
-					</Link>
-
+						<Link to={`/project-list/edit/${index}`}>
+							<button id="edit-project">
+								Edit
+							</button>
+						</Link>
+					</div>
 
 				</li>
 			) //return

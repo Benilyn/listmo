@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addUser, postUser} from '../actions/action-user.js';
 import {Field, reduxForm, reset} from 'redux-form';
 import {Redirect} from 'react-router-dom';
+import './register-user.css';
 
 export class RegisterUser extends React.Component {
 	constructor(props) {
@@ -42,7 +43,7 @@ export class RegisterUser extends React.Component {
 			<form
 				className="registration-form"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-				<h3>{this.props.form}</h3>
+				<h3>Register User</h3>
 				<div className="firstName">
 					<Field
 						component="input"
@@ -91,12 +92,12 @@ export class RegisterUser extends React.Component {
 						placeholder="Confirm Password"
 					/>
 				</div>
-*/}				 <div>
+*/}				 <div className="register-buttons">
 			        <button type="submit">
 			          Submit
 			        </button>
 			        <button type="button" onClick={() => this.props.dispatch(reset('RegisterUser'))}>
-			          Clear Values
+			          Clear
 			        </button>
 							<button type="button" onClick={() => this.props.history.go(-1)}>
 			          Back

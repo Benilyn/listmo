@@ -1,0 +1,40 @@
+form.registration-form {
+  border: solid .125em lightgray;
+  margin: 20% 1.5em;
+  height: 17em;
+}
+
+h3 {
+  text-align: center;
+}
+
+input {
+  border: solid .025em lightgray;
+  width: 85%;
+  margin: 0.25em 4.5%;
+  height: 2em;
+  padding: .125em .75em;
+}
+
+div.register-buttons {
+  width: 100%;
+  margin: 0.5em 0;
+  height: 2em;
+  padding: .5% 10%;
+}
+
+.register-buttons button {
+  width: 25%;
+  margin: 0 .5%;
+  height: 100%;
+  text-align: center;
+  padding: .5em auto;
+  border: none;
+  background-color: lightgray;
+}
+
+button:hover {
+  color: lightgray;
+  background-color: red;
+
+}

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import {loginUser} from '../actions/action-auth.js';
+import './login-form.css';
 
 export class LoginForm extends React.Component {
 	constructor(props) {
