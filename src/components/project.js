@@ -29,7 +29,7 @@ export class Project extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.dispatch(getProject());
+		this.props.dispatch(getProject(this.props.user));
 	}
 
 
@@ -95,6 +95,7 @@ const mapStateToProps = (state, props) => {
 //	console.log(project);
 	editProject = project;
 	return {
+		user: state.authReducer.currentUser,
 		projectId,
 		projectTitle: project.projectTitle,
 		projectDueDate: project.projectDueDate,

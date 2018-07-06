@@ -18,7 +18,8 @@ export class AddProject extends React.Component {
     this.props.dispatch(postProject({
       projectTitle: values.projectTitle,
       projectDueDate: values.projectDueDate,
-      projectDetail: values.projectDetail})
+      projectDetail: values.projectDetail,
+      user: this.props.user})
     );
     this.setEditing(false);
   }
@@ -83,7 +84,8 @@ export class AddProject extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    addProject: state.projects
+    addProject: state.projects,
+    user: state.authReducer.currentUser
   };
 };
 
