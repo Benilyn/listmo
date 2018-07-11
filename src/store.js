@@ -9,7 +9,8 @@ export default createStore(
     combineReducers({
         form: formReducer,
         listmoReducer,
-        authReducer
+        authReducer,
+        registerReducer
 
     }),
     applyMiddleware(thunk)
