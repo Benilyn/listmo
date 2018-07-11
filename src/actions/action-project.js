@@ -27,7 +27,7 @@ export const postProject = project => dispatch => {
 			projectDueDate: project.projectDueDate,
 			projectDetail: project.projectDetail,
 			projectTask: project.projectTask,
-			user: "5b18dc1d2a8be74452e3a3cc"
+			user: project.user
 		}) //body: JSON.stringify
 	}) //fetch(`${API_BASE_URL}/project`
 	.then(res => res.json())
@@ -40,7 +40,7 @@ export const postProject = project => dispatch => {
 
 // getProject
 export const getProject = (user) => dispatch => {
-	fetch(`${API_BASE_URL}/project/user/5b18dc1d2a8be74452e3a3cc`, {
+	fetch(`${API_BASE_URL}/project/user/${user}`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json'

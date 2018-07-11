@@ -35,9 +35,10 @@ export const authError = error => ({
 
 const storeAuthInfo = (authToken, dispatch) => {
   console.log(authToken);
-//    const decodedToken = jwtDecode(authToken);
+    const decodedToken = jwtDecode(authToken.authToken);
 //    dispatch(setAuthToken(authToken));
-    dispatch(authSuccess(authToken));
+    console.log(decodedToken);
+    dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
 
@@ -50,7 +51,7 @@ export const loginUser = (userName, password) => dispatch => {
   			'Content-Type': 'application/json'
   		},
   		body: JSON.stringify({
-          	userName,
+          	username: userName,
           	password
   		}) //body
   	}) //fetch
