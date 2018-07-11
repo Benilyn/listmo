@@ -1,12 +1,7 @@
 import * as user_actions from '../actions/action-user.js';
 
 const initialState = {
-	user: [{
-		firstName: '',
-		lastName: '',
-		email: '',
-		username: ''
-	}]
+	user: []
 };
 
 export const registerReducer = (state=initialState, action) => {
@@ -20,4 +15,9 @@ export const registerReducer = (state=initialState, action) => {
 			}]
 		});
 	} {/*actions.ADD_USER*/}
+
+	if(action.type === user_actions.CLEAR_USER) {
+		return initialState;
+	}
+	return state;
 }

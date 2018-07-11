@@ -14,7 +14,8 @@ export const listmoReducer = (state=initialState, action) => {
 				projectTitle: action.project.projectTitle,
 				projectDueDate: action.project.projectDueDate,
 				projectDetail: action.project.projectDetail,
-				projectTask: []
+				projectTask: [],
+				user: action.project.user
 			}]
 		});
 	} {/*actions.ADD_PROJECT*/}

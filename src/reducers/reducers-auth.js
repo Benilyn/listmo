@@ -8,7 +8,7 @@ import {
 
 const initialState = {
     authToken: null,
-    currentUser: {},
+    currentUser: null,
     loading: false,
     error: null
 };
@@ -29,9 +29,10 @@ export const authReducer = (state = initialState, action) => {
             error: null
         });
     } else if (action.type === AUTH_SUCCESS) {
+        console.log(action.currentUser.id);
         return Object.assign({}, state, {
             loading: false,
-            currentUser: action.currentUser
+            currentUser: action.currentUser.id
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {
