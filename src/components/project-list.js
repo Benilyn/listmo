@@ -11,10 +11,15 @@ import {addProject, getProject , deleteProject, editProject} from '../actions/ac
 export class ProjectList extends React.Component {
 
 	componentDidMount() {
-		console.log(this.props.user);
-		if(this.props.user) {
-			this.props.dispatch(getProject(this.props.user))
-		}
+// need to remove setTimeout, used only so we can proceed with finishing project
+		setTimeout(() => {
+			console.log(this.props.user);
+			if(this.props.user) {
+				this.props.dispatch(getProject(this.props.user))
+			}
+		}, 500);
+
+
 	} //*componentDidMount
 
 	addProject(projectTitle) {
@@ -29,6 +34,7 @@ export class ProjectList extends React.Component {
 
 
 	render() {
+
 		let projectList = this.props.projects.map((project, index) => {
 			return(
 				<li className="project-link" key={index}>

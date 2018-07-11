@@ -33,7 +33,7 @@ export class RegisterUser extends React.Component {
 	}
 
 	render() {
-		if (this.state.isRegistered) {
+		if (this.props.isRegistered) {
 			return (
         	<Redirect to="/" />
         );
@@ -111,8 +111,10 @@ export class RegisterUser extends React.Component {
 }
 
 const mapStateToProps = state => {
+	console.log(state);
     return {
-        userForm: state.user
+        userForm: state.user,
+				isRegistered: state.registerReducer.user.length > 0
     };
 };
 
