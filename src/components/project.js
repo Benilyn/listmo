@@ -65,26 +65,22 @@ export class Project extends React.Component {
 					<h2>{this.props.projectTitle}</h2>
 					<span>Due: {this.props.projectDueDate}</span><br />
 					<span>{this.props.projectDetail}</span><br />
-{/*					<button id="delete-project"
-							onClick={() => this.deleteProject(editProject)}>
-							Delete
-					</button>
-*/}				</div>
-
-				<ul className="task-list">
-					<h3>{this.props.title}</h3>
-					{projectTask}
-				</ul>
-				<div className="add-task">
-					<AddTask
-						type="task"
-						project={editProject}
-						onAdd={taskTitle => this.addTask(taskTitle)}
-					/>
 				</div>
-				<button type="button" onClick={() => this.props.history.go(-1)}>
-					Back
-				</button>
+				<div className="task-list-container">
+					<ul className="task-list">
+						<h3>{this.props.title}</h3>
+						{projectTask}
+					</ul>
+					<div className="add-task">
+						<AddTask
+							type="task"
+							project={editProject}
+							onAdd={taskTitle => this.addTask(taskTitle)} />
+					</div>
+					<button type="button" onClick={() => this.props.history.go(-1)}>
+						Back
+					</button>
+				</div>
 			</div>
 		)
 	}
