@@ -45,20 +45,22 @@ export class Project extends React.Component {
 		const projectTask = this.props.projectTask.map((task, index) =>
 			<li className="task-name" key={index}>
 				<Task {...task} />
-				<button id="delete-task"
-						onClick={() => this.deleteTask(task)}>
-						Delete
-				</button>
-							<Link to={`/task/edit/${this.props.projectId}/${index}`}>
-					<button id="edit-task">
-						Edit
+				<div className="task-buttons">
+					<button id="delete-task"
+							onClick={() => this.deleteTask(task)}>
+							Delete
 					</button>
-				</Link>
+					<Link to={`/task/edit/${this.props.projectId}/${index}`}>
+						<button id="edit-task">
+							Edit
+						</button>
+					</Link>
+				</div>
 			</li>
 
 		);
 		return (
-			<div className="tasks-lists">
+			<div className="project-detail">
 				<div className="project-info">
 					<h2>{this.props.projectTitle}</h2>
 					<span>Due: {this.props.projectDueDate}</span><br />
@@ -68,8 +70,11 @@ export class Project extends React.Component {
 							Delete
 					</button>
 */}				</div>
-				<h3>{this.props.title}</h3>
-				{projectTask}
+
+				<ul className="task-list">
+					<h3>{this.props.title}</h3>
+					{projectTask}
+				</ul>
 				<div className="add-task">
 					<AddTask
 						type="task"

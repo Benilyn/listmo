@@ -39,8 +39,8 @@ const self = this;
 				{self.props.isLoggedOut && (<Redirect to="/" />)}
 			</div>
 			<div className="header">
-				<h1>listmo app</h1>
 				<div className="logout-button">{logOutButton}</div>
+				<h1>listmo app</h1>
 			</div>
 			</div> //headerParent
 		);

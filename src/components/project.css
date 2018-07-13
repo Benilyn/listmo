@@ -1,3 +1,41 @@
 ul, li {
   list-style-type: none;
 }
+
+div.project-info {
+  text-align: center;
+  background-color: lightskyblue;
+}
+
+h2 {
+  margin: 0;
+  padding: 2%;
+}
+
+ul.task-list {
+  width: 85%;
+  margin: 0 auto;
+  border: .125em solid lightgray;
+}
+
+.task-list h3 {
+  margin: .75em auto;
+  padding: 0;
+
+}
+
+.task-name {
+  margin: 0.25em 7%;
+  height: auto;
+  width: 85%;
+  border: groove .125em lightgray;
+}
+
+.task-buttons button {
+  border: .0125em solid;
+  background-color: lightgray;
+}
+
+.task-ifo h4 {
+  margin: .5em 0;
+}
