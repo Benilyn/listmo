@@ -10,7 +10,8 @@ const initialState = {
     authToken: null,
     currentUser: null,
     loading: false,
-    error: null
+    error: null,
+    isLoggedOut: true
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -21,7 +22,8 @@ export const authReducer = (state = initialState, action) => {
     } else if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
             authToken: null,
-            currentUser: null
+            currentUser: null,
+            isLoggedOut: true
         });
     } else if (action.type === AUTH_REQUEST) {
         return Object.assign({}, state, {
@@ -32,6 +34,7 @@ export const authReducer = (state = initialState, action) => {
         console.log(action.currentUser.id);
         return Object.assign({}, state, {
             loading: false,
+            isLoggedOut: false,
             currentUser: action.currentUser.id
         });
     } else if (action.type === AUTH_ERROR) {

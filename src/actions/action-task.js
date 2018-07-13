@@ -15,7 +15,7 @@ export const getTaskSuccess = tasks => ({
 	tasks
 });
 
-export const postTask = task => dispatch => {
+export const postTask = (task, user) => dispatch => {
 	fetch(`${API_BASE_URL}/task`, {
 		method: 'POST',
 		headers: {
@@ -29,7 +29,7 @@ export const postTask = task => dispatch => {
 		})
 	})
 	.then(res => res.json())
-	.then(success => dispatch(getProject()))
+	.then(success => dispatch(getProject(user)))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);

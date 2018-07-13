@@ -16,6 +16,7 @@ export class Project extends React.Component {
 
 	addTask(taskTitle) {
 		console.log(taskTitle);
+		console.log(this.props.user);
 		this.props.dispatch(addTask(taskTitle, this.props.projectId));
 	}
 
@@ -29,6 +30,7 @@ export class Project extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props.user);
 		this.props.dispatch(getProject(this.props.user));
 	}
 

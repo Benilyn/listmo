@@ -34,8 +34,9 @@ export class ProjectList extends React.Component {
 
 
 	render() {
-
-		let projectList = this.props.projects.map((project, index) => {
+		let projectList
+		if (this.props.projects) {
+		projectList = this.props.projects.map((project, index) => {
 			return(
 				<li className="project-link" key={index}>
 					<Link to={`/project-list/${index}`}>
@@ -56,7 +57,7 @@ export class ProjectList extends React.Component {
 				</li>
 			) //return
 		}) //*projectList
-
+	}
 		return (
 			<div className="project-list">
 				<h3> Project </h3>

@@ -20,7 +20,8 @@ export class AddTask extends React.Component {
       taskTitle: values.taskTitle,
       taskDueDate: values.taskDueDate,
       taskDetail: values.taskDetail,
-      taskProject: this.props.project.id})
+      taskProject: this.props.project.id},
+      this.props.user)
     );
     console.log('testing add-form for projects');
     this.setEditing(false);
@@ -87,7 +88,8 @@ export class AddTask extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    addTask: state.projectTask
+    addTask: state.projectTask,
+    user: state.authReducer.currentUser
   };
 };
 

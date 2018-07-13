@@ -11,8 +11,9 @@ export const setAuthToken = authToken => ({
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
-export const clearAuth = () => ({
-    type: CLEAR_AUTH
+export const clearAuth = isLoggedOut => ({
+    type: CLEAR_AUTH,
+    isLoggedOut
 });
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
@@ -21,9 +22,10 @@ export const authRequest = () => ({
 });
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSuccess = currentUser => ({
+export const authSuccess = (currentUser, isLoggedOut) => ({
     type: AUTH_SUCCESS,
-    currentUser
+    currentUser,
+    isLoggedOut
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
