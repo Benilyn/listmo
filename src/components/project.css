@@ -13,29 +13,62 @@ h2 {
 }
 
 ul.task-list {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
-  border: .125em solid lightgray;
+  padding: 0;
 }
 
 .task-list h3 {
   margin: .75em auto;
-  padding: 0;
+  padding-left: 0;
 
 }
 
+.task-list-container {
+  border: solid .0125em lightgray;
+  width: 85%;
+  margin: 1em auto;
+}
+
 .task-name {
-  margin: 0.25em 7%;
+  display: inline-flex;
+  padding: .5em;
+  margin: 0.25em .75em;
   height: auto;
   width: 85%;
   border: groove .125em lightgray;
 }
 
+.task-buttons {
+  width: 20%;
+  display: initial;
+}
+
 .task-buttons button {
-  border: .0125em solid;
+  width: 100%;
+  height: 2em;
+  border: .0125em solid slategray;
   background-color: lightgray;
 }
 
-.task-ifo h4 {
+#delete-task {
+  padding: 0;
+}
+
+.task-info {
+  width: 80%;
+}
+.task-info h4 {
   margin: .5em 0;
+}
+
+.add-task {
+  width: 40%;
+  margin: auto;
+}
+
+.add-button button {
+  width: 100%;
+  height: 2em;
+  border: .125em solid slategray;
 }

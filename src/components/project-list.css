@@ -33,3 +33,8 @@ li.project-link {
 .project-link a {
   display: block;
 }
+
+.add-project {
+  width: 75%;
+  margin: .5em auto;
+}

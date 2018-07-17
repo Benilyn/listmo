@@ -71,6 +71,8 @@ export class Project extends React.Component {
 						<h3>{this.props.title}</h3>
 						{projectTask}
 					</ul>
+
+				<div className="task-button-container">
 					<div className="add-task">
 						<AddTask
 							type="task"
@@ -80,6 +82,7 @@ export class Project extends React.Component {
 					<button type="button" onClick={() => this.props.history.go(-1)}>
 						Back
 					</button>
+				</div>
 				</div>
 			</div>
 		)

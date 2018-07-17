@@ -1,4 +1,5 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {clearAuth} from '../actions/action-auth';
@@ -16,13 +17,20 @@ export class Header extends React.Component {
 
 
 	render() {
-		let logOutButton
+		let logOutButton;
+		let backButton;
 		if (this.props.user) {
 			logOutButton = (
 				<button className="logout"
 					onClick={() => this.logOut()}>
 					Log Out
 				</button>)
+//			backButton = (
+//				<button className="back"
+//					onClick={browserHistory.goBack}>
+//					Back
+//				</button>
+//			)
 		}
 
 //{self.state.isLoggedOut && (<Redirect to="/" />)}
@@ -39,7 +47,10 @@ const self = this;
 				{self.props.isLoggedOut && (<Redirect to="/" />)}
 			</div>
 			<div className="header">
-				<div className="logout-button">{logOutButton}</div>
+				<div className="menu-button">
+					<div className="logout-button">{logOutButton}</div>
+
+				</div>
 				<h1>listmo app</h1>
 			</div>
 			</div> //headerParent
