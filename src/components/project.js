@@ -51,7 +51,7 @@ export class Project extends React.Component {
 								this.deleteTask(task)}}>
 							Delete
 					</button>
-					<Link to={`/task/edit/${this.props.projectId}/${index}`}>
+					<Link to={`/task/edit/${this.props.projectId}/${task._id}`}>
 						<button id="edit-task">
 							Edit
 						</button>
