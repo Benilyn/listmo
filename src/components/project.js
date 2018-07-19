@@ -37,7 +37,7 @@ export class Project extends React.Component {
 
 	deleteTask(task) {
 		console.log('delete task ', task._id);
-		this.props.dispatch(deleteTask(task._id));
+		this.props.dispatch(deleteTask(task._id, this.props.user));
 	}
 
 	render() {

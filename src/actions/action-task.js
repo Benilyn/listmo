@@ -53,11 +53,11 @@ export const getTask = () => dispatch => {
 }; //const getTask
 
 // deleteTask
-export const deleteTask = taskId => dispatch => {
+export const deleteTask = (taskId, user) => dispatch => {
 	fetch(`${API_BASE_URL}/task/${taskId}`, {
 		method: 'DELETE'
 	}) //fetch
-	.then(res => dispatch(getProject()))
+	.then(res => dispatch(getProject(user)))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
@@ -65,7 +65,7 @@ export const deleteTask = taskId => dispatch => {
 }; //const deleteTask
 
 //editTask
-export const editTask = task => dispatch => {
+export const editTask = (task, user) => dispatch => {
 	fetch(`${API_BASE_URL}/task/${task.id}`, {
 		method: 'PUT',
 		headers: {
@@ -79,7 +79,7 @@ export const editTask = task => dispatch => {
 		}) //body: JSON.stringify
 	}) //fetch (`${API_BASE_URL}/task/${taskId}`
 		.then(res => res.json())
-		.then(res => dispatch(getProject()))
+		.then(res => dispatch(getProject(user)))
 		.catch(err => {
 			console.log(err);
 			return Promise.reject(err);

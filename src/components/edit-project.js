@@ -93,7 +93,10 @@ export class EditProject extends React.Component {
 }
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
-	const project = state.listmoReducer.projects[projectId] || {};
+  const project = state.listmoReducer.projects.filter(function(item) {
+			console.log(item.id == projectId);
+			return item.id == projectId;
+		})[0] || {};
   console.log(projectId);
   console.log(state);
   console.log(project);

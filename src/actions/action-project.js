@@ -67,7 +67,7 @@ export const deleteProject = (projectId, user) => dispatch => {
 }; //const postProject
 
 //editProject
-export const editProject = project => dispatch => {
+export const editProject = (project, user) => dispatch => {
 	fetch(`${API_BASE_URL}/project/${project.id}`, {
 		method: 'PUT',
 		headers: {
@@ -82,7 +82,7 @@ export const editProject = project => dispatch => {
 		}) //body: JSON.stringify
 	}) //fetch (`${API_BASE_URL}/project/${projectId}`
 		.then(res => res.json())
-		.then(res => dispatch(getProject()))
+		.then(res => dispatch(getProject(user)))
 		.catch(err => {
 			console.log(err);
 			return Promise.reject(err);
