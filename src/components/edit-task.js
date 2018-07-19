@@ -24,12 +24,12 @@ export class EditTask extends React.Component {
 
   onSubmit(values) {
     console.log(values);
-    console.log('editing task', this.props.task._id);
+    console.log('editing task', this.props.task);
     this.props.dispatch(editTask({
       id: this.props.task._id,
       taskTitle: values.taskTitle,
       taskDueDate: values.taskDueDate,
-      taskDetail: values.taskDetail})
+      taskDetail: values.taskDetail}, this.props.user)
     );
     this.setRedirect(true);
 //    const { history } = this.props;
@@ -97,8 +97,23 @@ const mapStateToProps = (state, props) => {
   console.log("taskId", taskId);
   const projectId = props.match.params.projectId;
   console.log("projectId", projectId);
-	const task = state.listmoReducer.projects[projectId].projectTask[taskId] || {};
-	return {
+
+
+  const project = state.listmoReducer.projects.filter(function(item) {
+      console.log(item.id == projectId);
+      return item.id == projectId;
+    })[0] || {};
+
+    const task = project.projectTask.filter(function(item) {
+      console.log(item._id, taskId);
+
+      return item._id == taskId;
+    })[0] || {};
+
+    console.log(task);
+
+  return {
+    user: state.authReducer.currentUser,
 		taskId,
 		task,
     projectId,
