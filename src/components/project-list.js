@@ -28,8 +28,7 @@ export class ProjectList extends React.Component {
 
 	deleteProject(project) {
 		console.log('delete project ', project.id);
-		alert('Deleting ', project.projectTitle);
-//		this.props.dispatch(deleteProject(project.id));
+		this.props.dispatch(deleteProject(project.id));
 	}
 
 
@@ -37,9 +36,10 @@ export class ProjectList extends React.Component {
 	render() {
 		let projectList
 		if (this.props.projects) {
-		projectList = this.props.projects.sort(function(a, b) {
-			return a.id - b.id;
-		}).map((project, index) => {
+		projectList = this.props.projects
+//					.sort(function(a, b) {
+//					return a.id - b.id; })
+			.map((project, index) => {
 			return(
 				<li className="project-link" key={index}>
 					<Link to={`/project-list/${project.id}`}>
@@ -47,7 +47,9 @@ export class ProjectList extends React.Component {
 					</Link>
 					<div className="project-list-buttons">
 						<button id="delete-project"
-								onClick={() => this.deleteProject(project)}>
+									onClick={() => {
+										if (window.confirm(`Are you sure you want to delete this Project?`))
+										this.deleteProject(project)}}>
 								Delete
 						</button>
 						<Link to={`/project-list/edit/${project.id}`}>
