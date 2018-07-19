@@ -33,7 +33,7 @@ export class EditProject extends React.Component {
       projectTask: values.projectTask})
     );
     this.setRedirect(true);
-    
+
 
   }
 
@@ -53,7 +53,7 @@ export class EditProject extends React.Component {
 
 
     return (
-      <form className="add-project-form"
+      <form className="edit-project-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <div className="project-title">
           <Field
@@ -94,6 +94,9 @@ export class EditProject extends React.Component {
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
 	const project = state.listmoReducer.projects[projectId] || {};
+  console.log(projectId);
+  console.log(state);
+  console.log(project);
 	return {
 		projectId,
 		project,
