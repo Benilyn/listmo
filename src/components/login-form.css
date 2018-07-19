@@ -4,3 +4,13 @@
   margin: 0 auto .25em;
   text-align: center;
 }
+
+.login-form h3 {
+  margin: 1em 0;
+}
+
+.login-form button {
+  width: 40%;
+  margin: .5em auto;
+  border: .125em solid lightslategrey;
+}

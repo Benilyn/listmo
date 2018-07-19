@@ -100,7 +100,7 @@ export class RegisterUser extends React.Component {
 			          Clear
 			        </button>
 							<button type="button" onClick={() => this.props.history.go(-1)}>
-			          Back
+			          Cancel
 			        </button>
 			      </div>
 
