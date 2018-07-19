@@ -36,7 +36,6 @@ export class Project extends React.Component {
 
 
 	deleteTask(task) {
-		console.log(task);
 		console.log('delete task ', task._id);
 		this.props.dispatch(deleteTask(task._id));
 	}
@@ -47,7 +46,9 @@ export class Project extends React.Component {
 				<Task {...task} />
 				<div className="task-buttons">
 					<button id="delete-task"
-							onClick={() => this.deleteTask(task)}>
+							onClick={() => {
+								if (window.confirm(`Are you sure you want to delete this task?`))
+								this.deleteTask(task)}}>
 							Delete
 					</button>
 					<Link to={`/task/edit/${this.props.projectId}/${index}`}>
