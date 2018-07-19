@@ -92,8 +92,11 @@ export class EditTask extends React.Component {
   }
 }
 const mapStateToProps = (state, props) => {
+  console.log(state);
 	const taskId = props.match.params.taskId;
+  console.log("taskId", taskId);
   const projectId = props.match.params.projectId;
+  console.log("projectId", projectId);
 	const task = state.listmoReducer.projects[projectId].projectTask[taskId] || {};
 	return {
 		taskId,
