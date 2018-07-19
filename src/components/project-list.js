@@ -28,14 +28,14 @@ export class ProjectList extends React.Component {
 
 	deleteProject(project) {
 		console.log('delete project ', project.id);
-		this.props.dispatch(deleteProject(project.id));
+		this.props.dispatch(deleteProject(project.id, this.props.user));
 	}
 
 
 
 	render() {
-		let projectList
-		if (this.props.projects) {
+		let projectList;
+		if (this.props.projects.length) {
 		projectList = this.props.projects
 //					.sort(function(a, b) {
 //					return a.id - b.id; })

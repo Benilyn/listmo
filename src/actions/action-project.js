@@ -55,11 +55,11 @@ export const getProject = (user) => dispatch => {
 }; //const postProject
 
 // deleteProject
-export const deleteProject = projectId => dispatch => {
+export const deleteProject = (projectId, user) => dispatch => {
 	fetch(`${API_BASE_URL}/project/${projectId}`, {
 		method: 'DELETE'
 	}) //fetch
-	.then(res => dispatch(getProject()))
+	.then(res => dispatch(getProject(user)))
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
