@@ -1,7 +1,7 @@
 import React from 'react';
 import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import {clearAuth} from '../actions/action-auth';
 import {clearAuthToken} from '../local-storage';
 import './header.css';
@@ -13,6 +13,7 @@ export class Header extends React.Component {
 		this.props.dispatch(clearAuth());
 		clearAuthToken();
 		console.log('logged out');
+		this.props.history.push("/");
 	}
 
 
@@ -33,12 +34,6 @@ export class Header extends React.Component {
 //			)
 		}
 
-//{self.state.isLoggedOut && (<Redirect to="/" />)}
-//		if (this.state.isLoggedOut) {
-//			return (
-//	     		<Redirect to="/" />
-	//     );
-//		}
 const self = this;
 
 		return (
@@ -61,7 +56,6 @@ const self = this;
 const mapStateToProps = state => ({
 	user: state.authReducer.currentUser,
 	isLoggedOut: state.authReducer.isloggedOut === true
-//    isloggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
