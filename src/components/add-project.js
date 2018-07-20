@@ -21,6 +21,7 @@ export class AddProject extends React.Component {
       projectDetail: values.projectDetail,
       user: this.props.user})
     );
+    this.props.reset();
     this.setEditing(false);
   }
 
