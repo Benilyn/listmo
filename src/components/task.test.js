@@ -1,9 +1,9 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import {LandingPage} from './landing-page';
+import {Task} from './task';
 
-describe('<LandingPage />', () => {
+describe('<Task />', () => {
     it('Renders without crashing', () => {
-        shallow(<LandingPage />);
+        shallow(<Task />);
     });
 });

@@ -15,10 +15,6 @@ describe('<RegisterUser />', () => {
     it('Should dispatch postUser when form is submitted', () => {
       const dispatch = jest.fn();
       const wrapper = shallow(<RegisterUser dispatch={dispatch} />);
-      const seedUser = {
-          userName: 'username1',
-          password: 'password'
-      };
       wrapper.instance().onSubmit(seedUser);
       wrapper.simulate('submit');
       expect(dispatch).toHaveBeenCalledWith(postUser(seedUser));
