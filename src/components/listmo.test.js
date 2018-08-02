@@ -6,4 +6,5 @@ describe('<Listmo />', () => {
     it('Renders without crashing', () => {
         shallow(<Listmo />);
     });
+
 });
