@@ -22,9 +22,9 @@ export const authRequest = () => ({
 });
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSuccess = (currentUser, isLoggedOut) => ({
+export const authSuccess = (authToken, isLoggedOut) => ({
     type: AUTH_SUCCESS,
-    currentUser,
+    authToken,
     isLoggedOut
 });
 
@@ -36,11 +36,11 @@ export const authError = error => ({
 
 
 const storeAuthInfo = (authToken, dispatch) => {
-  console.log(authToken);
+  console.log('storeAuthInfo', authToken);
   if (authToken) {
-    const decodedToken = jwtDecode(authToken.authToken);
-    console.log(decodedToken);
-    dispatch(authSuccess(decodedToken.user));
+    //const decodedToken = jwtDecode(authToken.authToken);
+    //console.log(decodedToken);
+    dispatch(authSuccess(authToken));
     saveAuthToken(authToken);
   }
   else {
@@ -62,11 +62,10 @@ export const loginUser = (userName, password) => dispatch => {
           	password
   		}) //body
   	}) //fetch
-    .then(res => {
-      if(res[0] == "{"){
-        return res.json()}})
-    .then((authToken) => storeAuthInfo(authToken, dispatch))
+    .then(res => res.json())
+    .then(res => storeAuthInfo(res.authToken, dispatch))
   	.catch(err => {
+      console.log('testing if I make it this far');
       console.log(err);
       const {code} = err;
                 const message =

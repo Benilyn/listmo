@@ -46,7 +46,7 @@ const self = this;
 					<div className="logout-button">{logOutButton}</div>
 
 				</div>
-				<h1>listmo app</h1>
+				<h1><a href="/">listmo app</a></h1>
 			</div>
 			</div> //headerParent
 		);

@@ -118,8 +118,9 @@ const mapStateToProps = state => {
     };
 };
 
-RegisterUser = connect(mapStateToProps)(RegisterUser);
+let RegisterUserReduxForm = connect(mapStateToProps)(RegisterUser);
+
 
 export default reduxForm({
 	form: 'RegisterUser'
-})(RegisterUser);
+})(RegisterUserReduxForm);

@@ -13,9 +13,8 @@ export class ProjectList extends React.Component {
 	componentDidMount() {
 // need to remove setTimeout, used only so we can proceed with finishing project
 		setTimeout(() => {
-			console.log(this.props.user);
-			if(this.props.user) {
-				this.props.dispatch(getProject(this.props.user))
+			if(localStorage.getItem('authToken')) {
+				this.props.dispatch(getProject(localStorage.getItem('authToken')))
 			}
 		}, 500);
 

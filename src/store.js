@@ -4,6 +4,10 @@ import {reducer as formReducer} from 'redux-form';
 import {listmoReducer} from './reducers/reducers-index.js';
 import {registerReducer} from './reducers/reducers-forms.js';
 import {authReducer} from './reducers/reducers-auth.js';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+
+
 
 export default createStore(
     combineReducers({
@@ -11,7 +15,8 @@ export default createStore(
         listmoReducer,
         authReducer,
         registerReducer
-
     }),
-    applyMiddleware(thunk)
+    composeWithDevTools(
+        applyMiddleware(thunk)
+    )
 );

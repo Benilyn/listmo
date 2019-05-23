@@ -20,14 +20,14 @@ export const postProject = project => dispatch => {
 	fetch(`${API_BASE_URL}/project`, {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${localStorage.getItem('authToken')}`
 		},
 		body: JSON.stringify({
 			projectTitle: project.projectTitle,
 			projectDueDate: project.projectDueDate,
 			projectDetail: project.projectDetail,
-			projectTask: project.projectTask,
-			user: project.user
+			projectTask: project.projectTask
 		}) //body: JSON.stringify
 	}) //fetch(`${API_BASE_URL}/project`
 	.then(res => res.json())
@@ -39,11 +39,12 @@ export const postProject = project => dispatch => {
 }; //const postProject
 
 // getProject
-export const getProject = (user) => dispatch => {
-	fetch(`${API_BASE_URL}/project/user/${user}`, {
+export const getProject = (authToken) => dispatch => {
+	fetch(`${API_BASE_URL}/project/user`, {
 		method: 'GET',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${localStorage.getItem('authToken')}`
 		}
 	}) //fetch(`${API_BASE_URL}/project`
 	.then(res => res.json())

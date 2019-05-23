@@ -12,7 +12,7 @@ export const clearUser = () => ({
 }); //const clearUser
 
 export const postUser = user => dispatch => {
-	fetch(`${API_BASE_URL}/user`, {
+	return fetch(`${API_BASE_URL}/user`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'

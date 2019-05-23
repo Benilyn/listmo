@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
@@ -18,6 +19,7 @@ export class LoginForm extends React.Component {
 	onSubmit(values) {
         this.loginUser(true);
         this.props.dispatch(loginUser(values.userName, values.password));
+        console.log(values);
         console.log('testing login');
 
     }

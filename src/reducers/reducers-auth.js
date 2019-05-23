@@ -31,11 +31,11 @@ export const authReducer = (state = initialState, action) => {
             error: null
         });
     } else if (action.type === AUTH_SUCCESS) {
-        console.log(action.currentUser.id);
+        //console.log(action.currentUser.id);
         return Object.assign({}, state, {
             loading: false,
             isLoggedOut: false,
-            currentUser: action.currentUser.id
+            currentUser: action.currentUser
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {

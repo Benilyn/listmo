@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
-import './listmo.css'
+import './listmo.css';
 import Header from './header';
 import LandingPage from './landing-page';
 import RegisterUser from './register-user';
