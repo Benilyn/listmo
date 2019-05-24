@@ -1,10 +1,10 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import {Listmo} from './listmo';
+import {App} from './app';
 
-describe('<Listmo />', () => {
+describe('<App />', () => {
     it('Renders without crashing', () => {
-        mount(<Listmo {...props}/>);
+        mount(<App {...props}/>);
     });
 
 });

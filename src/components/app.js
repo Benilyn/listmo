@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {BrowserRouter, Route, withRouter} from 'react-router-dom';
 
-import './listmo.css';
+import './app.css';
 import Header from './header';
 import LandingPage from './landing-page';
 import RegisterUser from './register-user';
@@ -12,9 +12,10 @@ import EditProject from './edit-project';
 import Task from './task';
 import EditTask from './edit-task';
 
-export class Listmo extends React.Component {
+export class App extends React.Component {
 	render() {
 		return (
+
 	        <div className="listmo">
 	        	<Header />
 	        	<Route exact path="/" component={LandingPage} />
@@ -24,9 +25,10 @@ export class Listmo extends React.Component {
 						<Route exact path="/project-list/edit/:projectId" component={EditProject} />
 						<Route exact path="/task/edit/:projectId/:taskId" component={EditTask} />
 	        </div>
+
     	);
 	}
 
 }
 
-export default withRouter(connect()(Listmo))
+export default withRouter(connect()(App))

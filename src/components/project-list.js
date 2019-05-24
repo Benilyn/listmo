@@ -84,7 +84,6 @@ ProjectList.defaultProps = {
 };
 
 const mapStateToProps = state => {
-	console.log(state);
 	return ({
 
     projects: state.listmoReducer.projects || [],

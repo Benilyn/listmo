@@ -1,4 +1,4 @@
-import jwtDecode from 'jwt-decode';
+//import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config';
@@ -104,3 +104,9 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             clearAuthToken(authToken);
         });
 };
+
+export const logoutUser = () => dispatch => {
+//  const authToken = getState().auth.authToken;
+  console.log('testing if this logout works');
+  localStorage.clear();
+}

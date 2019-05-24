@@ -30,7 +30,6 @@ export class Project extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props.user);
 		this.props.dispatch(getProject(this.props.user));
 	}
 
@@ -80,7 +79,7 @@ export class Project extends React.Component {
 							project={editProject}
 							onAdd={taskTitle => this.addTask(taskTitle)} />
 					</div>
-					<button type="button" onClick={() => this.props.history.go(-1)}>
+					<button type="button" onClick={() => this.props.history.push("/project-list")}>
 						Back
 					</button>
 				</div>
@@ -99,7 +98,7 @@ Project.defaultProps = {
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
 	const project = state.listmoReducer.projects.filter(function(item) {
-			console.log(item.id == projectId);
+//			console.log(item.id == projectId);
 			return item.id == projectId;
 		})[0] || {};
 //	console.log(project);
