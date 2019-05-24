@@ -1,9 +1,6 @@
 import React from 'react';
-import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
-//import {clearAuth} from '../actions/action-auth';
-import {logoutUser} from '../actions/action-auth.js';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 import './header.css';
 
@@ -44,7 +41,6 @@ const self = this;
 }
 
 const mapStateToProps = state => {
-	//console.log(state);
 	return ({
 		user: state.authReducer.currentUser,
 		isLoggedOut: state.authReducer.isloggedOut === true

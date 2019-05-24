@@ -15,7 +15,7 @@ export class RegisterUser extends React.Component {
 	}
 
 	onSubmit(values) {
-        console.log(values);
+
         this.registerUser(true);
         this.props.dispatch(postUser({
         	firstName: values.firstName,
@@ -24,8 +24,6 @@ export class RegisterUser extends React.Component {
         	userName: values.userName,
         	password: values.password})
        	);
-        console.log('testing registration-form');
-
     }
 
     registerUser(isRegistered) {
@@ -111,7 +109,6 @@ export class RegisterUser extends React.Component {
 }
 
 const mapStateToProps = state => {
-	console.log(state);
     return {
         userForm: state.user,
 				isRegistered: state.registerReducer.user.length > 0

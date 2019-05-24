@@ -38,8 +38,6 @@ export const authError = error => ({
 const storeAuthInfo = (authToken, dispatch) => {
   console.log('storeAuthInfo', authToken);
   if (authToken) {
-    //const decodedToken = jwtDecode(authToken.authToken);
-    //console.log(decodedToken);
     dispatch(authSuccess(authToken));
     saveAuthToken(authToken);
   }
@@ -104,9 +102,3 @@ export const refreshAuthToken = () => (dispatch, getState) => {
             clearAuthToken(authToken);
         });
 };
-
-export const logoutUser = () => dispatch => {
-//  const authToken = getState().auth.authToken;
-  console.log('testing if this logout works');
-  localStorage.clear();
-}

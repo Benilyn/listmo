@@ -24,7 +24,6 @@ export class AddTask extends React.Component {
       this.props.user)
     );
     this.props.reset();
-    console.log('testing add-form for projects');
     this.setEditing(false);
   }
 

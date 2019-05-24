@@ -14,7 +14,6 @@ export class EditProject extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.project);
     this.props.dispatch(change("EditProject", "projectTitle",this.props.project.projectTitle));
     this.props.dispatch(change("EditProject", "projectDueDate",this.props.project.projectDueDate));
     this.props.dispatch(change("EditProject", "projectDetail",this.props.project.projectDetail));
@@ -23,8 +22,6 @@ export class EditProject extends React.Component {
 
 
   onSubmit(values) {
-    console.log(values);
-    console.log('editing project', this.props.project.id);
     this.props.dispatch(editProject({
       id: this.props.project.id,
       projectTitle: values.projectTitle,
@@ -94,12 +91,8 @@ export class EditProject extends React.Component {
 const mapStateToProps = (state, props) => {
 	const projectId = props.match.params.projectId;
   const project = state.listmoReducer.projects.filter(function(item) {
-			console.log(item.id == projectId);
 			return item.id == projectId;
 		})[0] || {};
-  console.log(projectId);
-  console.log(state);
-  console.log(project);
 	return {
 		projectId,
 		project,

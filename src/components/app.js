@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 
 import './app.css';
 import Header from './header';

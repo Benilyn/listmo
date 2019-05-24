@@ -13,7 +13,6 @@ export class AddProject extends React.Component {
   }
 
   onSubmit(values) {
-    console.log(values);
     this.setEditing(true);
     this.props.dispatch(postProject({
       projectTitle: values.projectTitle,

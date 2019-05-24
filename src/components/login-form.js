@@ -19,9 +19,6 @@ export class LoginForm extends React.Component {
 	onSubmit(values) {
         this.loginUser(true);
         this.props.dispatch(loginUser(values.userName, values.password));
-        console.log(values);
-        console.log('testing login');
-
     }
 
 

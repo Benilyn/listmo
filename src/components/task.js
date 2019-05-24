@@ -13,11 +13,6 @@ export class Task extends React.Component {
 		this.setState({hidden});
 	}
 
-//	const Details = (() => {
-//		<div className="task-details">
-//			{this.props.date}
-//		</div>
-//	});
 
 	render() {
 		let details;
