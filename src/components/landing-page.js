@@ -13,6 +13,12 @@ export class LandingPage extends React.Component {
 			<div className="landing-page">
 				<LoginForm />
 				<Link to="/register">Register</Link>
+
+				<div className="guest-login">
+						<p>To login as Guest, please use:</p>
+						<p>Username: Guest</p>
+						<p>Password: password</p>
+				</div>
 			</div>}
 
 	}
