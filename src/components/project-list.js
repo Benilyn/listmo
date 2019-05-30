@@ -36,8 +36,8 @@ export class ProjectList extends React.Component {
 		let projectList;
 		if (this.props.projects.length) {
 		projectList = this.props.projects
-//					.sort(function(a, b) {
-//					return a.id - b.id; })
+					.sort(function(a, b) {
+					return a.id - b.id; })
 			.map((project, index) => {
 			return(
 				<li className="project-link" key={index}>
