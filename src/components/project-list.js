@@ -26,8 +26,8 @@ export class ProjectList extends React.Component {
 	} //addProject(projectTitle)
 
 	deleteProject(project) {
-		console.log('delete project ', project.id);
-		this.props.dispatch(deleteProject(project.id, this.props.user));
+		console.log('delete project ', project._id);
+		this.props.dispatch(deleteProject(project._id, this.props.user));
 	}
 
 
@@ -51,7 +51,7 @@ export class ProjectList extends React.Component {
 										this.deleteProject(project)}}>
 								Delete
 						</button>
-						<Link to={`/project-list/edit/${project.id}`}>
+						<Link to={`/project-list/edit/${project._id}`}>
 							<button id="edit-project">
 								Edit
 							</button>
