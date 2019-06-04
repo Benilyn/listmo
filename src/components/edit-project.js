@@ -23,7 +23,7 @@ export class EditProject extends React.Component {
 
   onSubmit(values) {
     this.props.dispatch(editProject({
-      id: this.props.project.id,
+      id: this.props.project._id,
       projectTitle: values.projectTitle,
       projectDueDate: values.projectDueDate,
       projectDetail: values.projectDetail,
@@ -89,15 +89,22 @@ export class EditProject extends React.Component {
   }
 }
 const mapStateToProps = (state, props) => {
-	const projectId = props.match.params.projectId;
+	const {projectId} = props.match.params;
+  console.log(projectId);
+  const testing= state;
+  console.log(testing)
   const project = state.listmoReducer.projects.filter(function(item) {
-			return item.id == projectId;
-		})[0] || {};
+        console.log(item._id,projectId);
+        return item._id === projectId
+  //return project
+})[0] || {};
+  console.log(project);
 	return {
 		projectId,
 		project,
     initialValues: project
 	}
+
 }
 
 EditProject = connect(mapStateToProps)(EditProject);

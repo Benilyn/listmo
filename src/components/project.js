@@ -14,10 +14,14 @@ let editProject;
 export class Project extends React.Component {
 
 
-	addTask(taskTitle) {
-		console.log(taskTitle);
-		console.log(this.props.user);
-		this.props.dispatch(addTask(taskTitle, this.props.projectId));
+	addTask(values) {
+		let projectTask = {
+			taskTitle: values.taskTitle,
+			taskDueDate: "",
+			taskDetail: "",
+			taskProject: this.props.projectId
+		}
+		this.props.dispatch(addTask(projectTask, this.props.projectId));
 	}
 
 	deleteProject(editProject) {
@@ -30,7 +34,11 @@ export class Project extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.dispatch(getProject(this.props.user));
+		//this.props.dispatch(getProject(this.props.user));
+		if(localStorage.getItem('authToken')) {
+			console.log('authToken exists');
+			this.props.dispatch(getProject(localStorage.getItem('authToken')))
+		}
 	}
 
 
@@ -77,7 +85,7 @@ export class Project extends React.Component {
 						<AddTask
 							type="task"
 							project={editProject}
-							onAdd={taskTitle => this.addTask(taskTitle)} />
+							onAdd={taskTitle => this.addTask(taskTitle)} {...this.props} />
 					</div>
 					<button type="button" onClick={() => this.props.history.push("/project-list")}>
 						Back
@@ -96,9 +104,9 @@ Project.defaultProps = {
 };
 
 const mapStateToProps = (state, props) => {
-	const projectId = props.match.params.projectId;
+	const {projectId} = props.match.params;
 	const project = state.listmoReducer.projects.filter(function(item) {
-			return item.id == projectId;
+			return item;
 		})[0] || {};
 	editProject = project;
 	return {

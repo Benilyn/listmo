@@ -12,11 +12,11 @@ export class ProjectList extends React.Component {
 
 	componentDidMount() {
 // need to remove setTimeout, used only so we can proceed with finishing project
-		setTimeout(() => {
+	//	setTimeout(() => {
 			if(localStorage.getItem('authToken')) {
 				this.props.dispatch(getProject(localStorage.getItem('authToken')))
 			}
-		}, 500);
+	//	}, 500);
 
 
 	} //*componentDidMount
@@ -34,14 +34,15 @@ export class ProjectList extends React.Component {
 
 	render() {
 		let projectList;
+		console.log(this.props.projects);
 		if (this.props.projects.length) {
 		projectList = this.props.projects
-					.sort(function(a, b) {
-					return a.id - b.id; })
+//					.sort(function(a, b) {
+//					return a.id - b.id; })
 			.map((project, index) => {
 			return(
 				<li className="project-link" key={index}>
-					<Link to={`/project-list/${project.id}`}>
+					<Link to={`/project-list/${project._id}`}>
 						{project.projectTitle}
 					</Link>
 					<div className="project-list-buttons">
@@ -84,6 +85,7 @@ ProjectList.defaultProps = {
 };
 
 const mapStateToProps = state => {
+	console.log(state.authReducer);
 	return ({
 
     projects: state.listmoReducer.projects || [],

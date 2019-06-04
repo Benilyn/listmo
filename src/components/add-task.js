@@ -14,17 +14,20 @@ export class AddTask extends React.Component {
   }
 
   onSubmit(values) {
-    this.props.onAdd(values);
+
     this.setEditing(true);
     this.props.dispatch(postTask({
       taskTitle: values.taskTitle,
       taskDueDate: values.taskDueDate,
       taskDetail: values.taskDetail,
       taskProject: this.props.project.id},
-      this.props.user)
+      ()=>{
+        this.props.onAdd(values);
+        this.props.reset();
+        this.setEditing(false);
+      })
     );
-    this.props.reset();
-    this.setEditing(false);
+
   }
 
 
@@ -86,8 +89,11 @@ export class AddTask extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
+  const {projectId} = props.match.params;
+
   return {
+    projectId: projectId,
     addTask: state.projectTask,
     user: state.authReducer.currentUser
   };
