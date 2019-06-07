@@ -2,10 +2,10 @@ import {API_BASE_URL} from '../config.js';
 import {addProject, getProject} from '../actions/action-project.js';
 
 export const ADD_TASK = 'ADD_TASK';
-export const addTask = (projectTask, projectIndex) => ({
+export const addTask = (projectTask, projectId) => ({
 	type: ADD_TASK,
 	projectTask,
-	projectIndex
+	projectId
 }); {/*addProject*/}
 
 // getTaskSuccess
@@ -15,7 +15,8 @@ export const getTaskSuccess = tasks => ({
 	tasks
 });
 
-export const postTask = (task, user) => dispatch => {
+export const postTask = (task, cb) => dispatch => {
+	console.log(task);
 	fetch(`${API_BASE_URL}/task`, {
 		method: 'POST',
 		headers: {
@@ -29,7 +30,7 @@ export const postTask = (task, user) => dispatch => {
 		})
 	})
 	.then(res => res.json())
-	.then(success => dispatch(getProject(user)))
+	.then(success => cb())
 	.catch(err => {
 		console.log(err);
 		return Promise.reject(err);
