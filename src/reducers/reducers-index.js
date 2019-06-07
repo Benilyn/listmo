@@ -22,18 +22,14 @@ export const listmoReducer = (state=initialState, action) => {
 
 	if (action.type === task_actions.ADD_TASK) {
 		let projects = state.projects.map((project, index) => {
-			if (index !== parseInt(action.projectIndex, 10)) {
-				return project;
+			if (project._id === action.projectId) {
+				console.log(action,project);
+				return Object.assign({}, project, {
+					projectTask: [...project.projectTask, action.projectTask]
+				});
+			} else {
+				return project
 			}
-			console.log(action);
-			return Object.assign({}, project, {
-				projectTask: [...project.projectTask, {
-					taskTitle: action.projectTask.taskTitle,
-					taskDueDate: action.projectTask.taskDueDate,
-					taskDetail: action.projectTask.taskDetail,
-					taskProject: action.projectTask.taskProject
-				}]
-			});
 		});
 		return Object.assign({}, state, {
 			projects
