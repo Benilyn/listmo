@@ -56,8 +56,8 @@ export const getProject = (authToken) => dispatch => {
 }; //const postProject
 
 // deleteProject
-export const deleteProject = (projectId, user) => dispatch => {
-	fetch(`${API_BASE_URL}/project/${projectId}`, {
+export const deleteProject = (project, user) => dispatch => {
+	fetch(`${API_BASE_URL}/project/${project}`, {
 		method: 'DELETE'
 	}) //fetch
 	.then(res => dispatch(getProject(user)))
@@ -69,10 +69,12 @@ export const deleteProject = (projectId, user) => dispatch => {
 
 //editProject
 export const editProject = (project, user) => dispatch => {
+	console.log(project);
 	fetch(`${API_BASE_URL}/project/${project.id}`, {
 		method: 'PUT',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${localStorage.getItem('authToken')}`
 		},
 		body: JSON.stringify({
 			id: project.id,
@@ -81,7 +83,7 @@ export const editProject = (project, user) => dispatch => {
 			projectDetail: project.projectDetail,
 			projectTask: project.projectTask
 		}) //body: JSON.stringify
-	}) //fetch (`${API_BASE_URL}/project/${projectId}`
+	}) //fetch (`${API_BASE_URL}/project/${project}`
 		.then(res => res.json())
 		.then(res => dispatch(getProject(user)))
 		.catch(err => {
