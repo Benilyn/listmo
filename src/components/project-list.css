@@ -32,6 +32,7 @@ li.project-link {
 
 .project-link a {
   display: block;
+  margin: .5em auto;
 }
 
 .add-project {
