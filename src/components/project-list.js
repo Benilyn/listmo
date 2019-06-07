@@ -11,14 +11,10 @@ import {addProject, getProject , deleteProject, editProject} from '../actions/ac
 export class ProjectList extends React.Component {
 
 	componentDidMount() {
-// need to remove setTimeout, used only so we can proceed with finishing project
-	//	setTimeout(() => {
 			if(localStorage.getItem('authToken')) {
+				console.log('authToken exists in project-list');
 				this.props.dispatch(getProject(localStorage.getItem('authToken')))
 			}
-	//	}, 500);
-
-
 	} //*componentDidMount
 
 	addProject(projectTitle) {
@@ -43,7 +39,8 @@ export class ProjectList extends React.Component {
 			return(
 				<li className="project-link" key={index}>
 					<Link to={`/project-list/${project._id}`}>
-						{project.projectTitle}
+						<h5>{project.projectTitle}</h5>
+						{project.projectDueDate}
 					</Link>
 					<div className="project-list-buttons">
 						<button id="delete-project"
@@ -85,11 +82,11 @@ ProjectList.defaultProps = {
 };
 
 const mapStateToProps = state => {
-	console.log(state.authReducer);
+	console.log(state);
 	return ({
+		user: state.authReducer.currentUser,
+    projects: state.listmoReducer.projects || []
 
-    projects: state.listmoReducer.projects || [],
-		user: state.authReducer.currentUser
 
 })};
 
