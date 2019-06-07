@@ -87,9 +87,6 @@ export class Project extends React.Component {
 							project={editProject}
 							onAdd={taskTitle => this.addTask(taskTitle)} {...this.props} />
 					</div>
-					<button type="button" onClick={() => this.props.history.push("/project-list")}>
-						Back
-					</button>
 				</div>
 				</div>
 			</div>
@@ -106,9 +103,10 @@ Project.defaultProps = {
 const mapStateToProps = (state, props) => {
 	const {projectId} = props.match.params;
 	const project = state.listmoReducer.projects.filter(function(item) {
-			return item;
+			return item._id === projectId
 		})[0] || {};
 	editProject = project;
+	console.log(project);
 	return {
 		user: state.authReducer.currentUser,
 		projectId,
