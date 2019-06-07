@@ -20,7 +20,7 @@ export class AddTask extends React.Component {
       taskTitle: values.taskTitle,
       taskDueDate: values.taskDueDate,
       taskDetail: values.taskDetail,
-      taskProject: this.props.project.id},
+      taskProject: this.props.project._id},
       ()=>{
         this.props.onAdd(values);
         this.props.reset();
@@ -91,9 +91,9 @@ export class AddTask extends React.Component {
 
 const mapStateToProps = (state, props) => {
   const {projectId} = props.match.params;
-
+  console.log(projectId);
   return {
-    projectId: projectId,
+    projectId,
     addTask: state.projectTask,
     user: state.authReducer.currentUser
   };
