@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {editProject, postProject} from '../actions/action-project.js';
+import {editProject, postProject, getProject} from '../actions/action-project.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
 
 export class EditProject extends React.Component {
@@ -14,6 +14,7 @@ export class EditProject extends React.Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(getProject(this.props.user));
     this.props.dispatch(change("EditProject", "projectTitle",this.props.project.projectTitle));
     this.props.dispatch(change("EditProject", "projectDueDate",this.props.project.projectDueDate));
     this.props.dispatch(change("EditProject", "projectDetail",this.props.project.projectDetail));
