@@ -36,7 +36,8 @@ export class Task extends React.Component {
 Task.defaultProps = {
 	taskTitle: '',
 	taskDueDate: '',
-	taskDetail: ''
+	taskDetail: '',
+	taskCreated: ''
 };
 
 
