@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {editTask, postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
+import {getProject} from '../actions/action-project.js';
 
 export class EditTask extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export class EditTask extends React.Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(getProject(this.props.user));
     console.log(this.props.task);
     this.props.dispatch(change("EditTask", "taskTitle",this.props.task.taskTitle));
     this.props.dispatch(change("EditTask", "taskDueDate",this.props.task.taskDueDate));
@@ -29,11 +31,11 @@ export class EditTask extends React.Component {
       id: this.props.task._id,
       taskTitle: values.taskTitle,
       taskDueDate: values.taskDueDate,
-      taskDetail: values.taskDetail}, this.props.user)
+      taskDetail: values.taskDetail,
+      taskProject: this.props.taskProject,
+      taskCreated: this.props.taskCreated}, this.props.user)
     );
     this.setRedirect(true);
-//    const { history } = this.props;
-//		history.push(`/project-list/{:projectId}`);
 
   }
 
@@ -53,7 +55,7 @@ export class EditTask extends React.Component {
 
 
     return (
-      <form className="add-task-form"
+      <form className="edit-task-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <div className="task-title">
           <Field
@@ -93,22 +95,25 @@ export class EditTask extends React.Component {
 }
 const mapStateToProps = (state, props) => {
   console.log(state);
-	const taskId = props.match.params.taskId;
+  console.log(props);
+	const {taskId} = props.match.params;
   console.log("taskId", taskId);
-  const projectId = props.match.params.projectId;
-  console.log("projectId", projectId);
+  let task = null;
+  
 
 
-  const project = state.listmoReducer.projects.filter(function(item) {
-      console.log(item.id == projectId);
-      return item.id == projectId;
+  const project = state.listmoReducer.projects.filter(function(project) {
+      let pass = false;
+      project.projectTask.forEach(pTask=>{
+        if(pTask._id == taskId){
+          pass = true;
+          task = pTask;
+        }
+      });
+      return pass
     })[0] || {};
 
-    const task = project.projectTask.filter(function(item) {
-      console.log(item._id, taskId);
-
-      return item._id == taskId;
-    })[0] || {};
+    const projectId = project._id;
 
     console.log(task);
 
@@ -117,6 +122,7 @@ const mapStateToProps = (state, props) => {
 		taskId,
 		task,
     projectId,
+    project,
     initialValues: task
 	}
 }

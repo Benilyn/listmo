@@ -30,17 +30,14 @@ export class ProjectList extends React.Component {
 
 	render() {
 		let projectList;
-		console.log(this.props.projects);
 		if (this.props.projects.length) {
 		projectList = this.props.projects
-//					.sort(function(a, b) {
-//					return a.id - b.id; })
 			.map((project, index) => {
 			return(
 				<li className="project-link" key={index}>
 					<Link to={`/project-list/${project._id}`}>
-						<h5>{project.projectTitle}</h5>
-						{project.projectDueDate}
+						<h4>{project.projectTitle}</h4>
+						<span>{project.projectDueDate}</span>
 					</Link>
 					<div className="project-list-buttons">
 						<button id="delete-project"
@@ -82,10 +79,9 @@ ProjectList.defaultProps = {
 };
 
 const mapStateToProps = state => {
-	console.log(state);
 	return ({
 		user: state.authReducer.currentUser,
-    projects: state.listmoReducer.projects || []
+    	projects: state.listmoReducer.projects || []
 
 
 })};

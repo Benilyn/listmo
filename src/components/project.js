@@ -43,8 +43,8 @@ export class Project extends React.Component {
 
 
 	deleteTask(task) {
-		console.log('delete task ', task._id);
-		this.props.dispatch(deleteTask(task._id, this.props.user));
+		console.log('delete task ', task);
+		this.props.dispatch(deleteTask(task._id));
 	}
 
 	render() {
@@ -54,11 +54,12 @@ export class Project extends React.Component {
 				<div className="task-buttons">
 					<button id="delete-task"
 							onClick={() => {
+								console.log(task);
 								if (window.confirm(`Are you sure you want to delete this task?`))
 								this.deleteTask(task)}}>
 							Delete
 					</button>
-					<Link to={`/task/edit/${this.props.projectId}/${task._id}`}>
+					<Link to={`/task/edit/${task._id}`}>
 						<button id="edit-task">
 							Edit
 						</button>
@@ -113,8 +114,8 @@ const mapStateToProps = (state, props) => {
 		projectTitle: project.projectTitle,
 		projectDueDate: project.projectDueDate,
 		projectDetail: project.projectDetail,
-		projectTask: project.projectTask ? Object.keys(project.projectTask).map(projectTaskId =>
-			project.projectTask[projectTaskId]
+		projectTask: project.projectTask ? Object.keys(project.projectTask).map(projectTask =>
+			project.projectTask[projectTask]
 		): []
 	}
 }

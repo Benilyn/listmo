@@ -20,10 +20,10 @@ export class App extends React.Component {
 	        	<Header />
 	        	<Route exact path="/" component={LandingPage} />
 	        	<Route exact path="/register" component={RegisterUser} />
-	          <Route exact path="/project-list" component={ProjectList} />
-	          <Route exact path="/project-list/:projectId" component={Project} />
-						<Route exact path="/project-list/edit/:projectId" component={EditProject} />
-						<Route exact path="/task/edit/:projectId/:taskId" component={EditTask} />
+	          	<Route exact path="/project-list" component={ProjectList} />
+	          	<Route exact path="/project-list/:projectId" component={Project} />
+				<Route exact path="/project-list/edit/:projectId" component={EditProject} />
+				<Route exact path="/task/edit/:taskId" component={EditTask} />
 	        </div>
 
     	);

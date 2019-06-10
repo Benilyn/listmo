@@ -16,7 +16,7 @@ li.project-link {
   margin: .05em auto;
   padding: .25em;
   text-align: center;
-
+  display: inline-block;
 }
 
 .project-list-buttons {
@@ -33,6 +33,13 @@ li.project-link {
 .project-link a {
   display: block;
   margin: .5em auto;
+}
+.project-link h4 {
+  margin: .25em auto;
+}
+
+.project-link span {
+  font: 1em;
 }
 
 .add-project {

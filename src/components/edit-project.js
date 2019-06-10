@@ -30,8 +30,6 @@ export class EditProject extends React.Component {
       projectTask: values.projectTask})
     );
     this.setRedirect(true);
-
-
   }
 
 
@@ -90,12 +88,10 @@ export class EditProject extends React.Component {
 }
 const mapStateToProps = (state, props) => {
 	const {projectId} = props.match.params;
-  console.log(projectId);
   const project = state.listmoReducer.projects.filter(function(item) {
         return item._id === projectId
   //return project
 })[0] || {};
-  console.log(project);
 	return {
 		projectId,
 		project,

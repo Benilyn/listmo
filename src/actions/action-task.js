@@ -54,8 +54,9 @@ export const getTask = () => dispatch => {
 }; //const getTask
 
 // deleteTask
-export const deleteTask = (taskId, user) => dispatch => {
-	fetch(`${API_BASE_URL}/task/${taskId}`, {
+export const deleteTask = (task, user) => dispatch => {
+	console.log(task);
+	fetch(`${API_BASE_URL}/task/${task}`, {
 		method: 'DELETE'
 	}) //fetch
 	.then(res => dispatch(getProject(user)))
@@ -67,6 +68,7 @@ export const deleteTask = (taskId, user) => dispatch => {
 
 //editTask
 export const editTask = (task, user) => dispatch => {
+	console.log(task);
 	fetch(`${API_BASE_URL}/task/${task.id}`, {
 		method: 'PUT',
 		headers: {
@@ -80,7 +82,7 @@ export const editTask = (task, user) => dispatch => {
 		}) //body: JSON.stringify
 	}) //fetch (`${API_BASE_URL}/task/${taskId}`
 		.then(res => res.json())
-		.then(res => dispatch(getProject(user)))
+		.then(res => dispatch(getTask(user)))
 		.catch(err => {
 			console.log(err);
 			return Promise.reject(err);
