@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addProject, postProject} from '../actions/action-project.js';
+import {postProject} from '../actions/action-project.js';
 import {Field, reduxForm, reset} from 'redux-form';
 
 export class AddProject extends React.Component {

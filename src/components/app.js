@@ -9,7 +9,6 @@ import RegisterUser from './register-user';
 import ProjectList from './project-list';
 import Project from './project';
 import EditProject from './edit-project';
-import Task from './task';
 import EditTask from './edit-task';
 
 export class App extends React.Component {

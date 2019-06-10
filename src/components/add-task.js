@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addTask, postTask} from '../actions/action-task.js';
+import { postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset} from 'redux-form';
 import {getProject} from '../actions/action-project.js';
 
-import {getTask} from '../actions/action-task.js';
 
 let project;
 export class AddTask extends React.Component {

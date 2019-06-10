@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect, withRouter, Link} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 
 import Task from './task';
 import AddTask from './add-task';
-import EditTask from './edit-task';
 import {addTask, deleteTask} from '../actions/action-task.js';
 import '../css/project.css';
 import {deleteProject, getProject} from '../actions/action-project.js';

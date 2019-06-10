@@ -1,5 +1,5 @@
 import {API_BASE_URL} from '../config.js';
-import {addProject, getProject} from '../actions/action-project.js';
+import {getProject} from '../actions/action-project.js';
 
 export const ADD_TASK = 'ADD_TASK';
 export const addTask = (projectTask, projectId) => ({
