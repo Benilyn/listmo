@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addTask, postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset} from 'redux-form';
+import {getProject} from '../actions/action-project.js';
+
+import {getTask} from '../actions/action-task.js';
 
 let project;
 export class AddTask extends React.Component {
@@ -13,6 +16,10 @@ export class AddTask extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+		this.props.dispatch(getProject(this.props.user));
+	}
+
   onSubmit(values) {
 
     this.setEditing(true);
@@ -20,7 +27,7 @@ export class AddTask extends React.Component {
       taskTitle: values.taskTitle,
       taskDueDate: values.taskDueDate,
       taskDetail: values.taskDetail,
-      taskProject: this.props.project._id},
+      taskProject: this.props.projectId},
       ()=>{
         this.props.onAdd(values);
         this.props.reset();
@@ -91,9 +98,9 @@ export class AddTask extends React.Component {
 
 const mapStateToProps = (state, props) => {
   const {projectId} = props.match.params;
-  console.log(projectId);
   return {
     projectId,
+    project,
     addTask: state.projectTask,
     user: state.authReducer.currentUser
   };
