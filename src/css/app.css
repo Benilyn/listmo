@@ -1,0 +1,15 @@
+.header {
+  background-color: lightgray;
+  height: 3em;
+}
+
+h1 {
+  margin: 0 auto;
+  text-align: center;
+  padding: .25em;
+}
+
+a {
+  display: block;
+  text-align: center;
+}

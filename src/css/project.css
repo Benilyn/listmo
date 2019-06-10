@@ -1,0 +1,74 @@
+ul, li {
+  list-style-type: none;
+}
+
+div.project-info {
+  text-align: center;
+  background-color: lightskyblue;
+}
+
+h2 {
+  margin: 0;
+  padding: 2%;
+}
+
+ul.task-list {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.task-list h3 {
+  margin: .75em auto;
+  padding-left: 0;
+
+}
+
+.task-list-container {
+  border: solid .0125em lightgray;
+  width: 85%;
+  margin: 1em auto;
+}
+
+.task-name {
+  display: inline-flex;
+  padding: .5em;
+  margin: 0.25em .75em;
+  height: auto;
+  width: 85%;
+  border: groove .125em lightgray;
+}
+
+.task-buttons {
+  width: 20%;
+  display: initial;
+}
+
+.task-buttons button {
+  width: 100%;
+  height: 2em;
+  border: .0125em solid slategray;
+  background-color: lightgray;
+}
+
+#delete-task {
+  padding: 0;
+}
+
+.task-info {
+  width: 80%;
+}
+.task-info h4 {
+  margin: .5em 0;
+}
+
+.add-task {
+  width: 40%;
+  margin: auto;
+}
+
+.add-button button {
+  width: 100%;
+  height: 2em;
+  border: .125em solid slategray;
+}
