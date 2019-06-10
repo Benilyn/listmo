@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
-import './app.css';
+import '../css/app.css';
 import Header from './header';
 import LandingPage from './landing-page';
 import RegisterUser from './register-user';
