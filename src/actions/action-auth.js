@@ -36,7 +36,6 @@ export const authError = error => ({
 
 
 const storeAuthInfo = (authToken, dispatch) => {
-  console.log('storeAuthInfo', authToken);
   if (authToken) {
     dispatch(authSuccess(authToken));
     saveAuthToken(authToken);
