@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {API_BASE_URL} from '../config.js';
 
-import './project-list.css';
+import '../css/project-list.css';
 import Project from './project';
 import AddProject from './add-project';
 import {addProject, getProject , deleteProject, editProject} from '../actions/action-project.js';
@@ -12,7 +12,6 @@ export class ProjectList extends React.Component {
 
 	componentDidMount() {
 			if(localStorage.getItem('authToken')) {
-				console.log('authToken exists in project-list');
 				this.props.dispatch(getProject(localStorage.getItem('authToken')))
 			}
 	} //*componentDidMount

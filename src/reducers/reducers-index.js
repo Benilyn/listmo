@@ -7,7 +7,6 @@ const initialState = {
 
 export const listmoReducer = (state=initialState, action) => {
 	if (action.type === project_actions.ADD_PROJECT) {
-		console.log(action);
 		return Object.assign({}, state, {
 			projects: [...state.projects, {
 				id: action.project.id,
@@ -37,14 +36,12 @@ export const listmoReducer = (state=initialState, action) => {
 	}
 
 	if (action.type === project_actions.GET_PROJECT_SUCCESS) {
-		console.log(action.projects);
 		return Object.assign({}, state, {
 			projects: action.projects
 		})
 	}
 
 	if (action.type === task_actions.GET_TASK_SUCCESS) {
-		console.log(action.tasks);
 		return Object.assign({}, state, {
 			tasks: action.tasks
 		})

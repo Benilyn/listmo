@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, withRouter} from 'react-router-dom';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
-import './header.css';
+import '../css/header.css';
 
 export class Header extends React.Component {
 

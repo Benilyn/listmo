@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {addUser, postUser} from '../actions/action-user.js';
 import {Field, reduxForm, reset} from 'redux-form';
 import {Redirect} from 'react-router-dom';
-import './register-user.css';
+import '../css/register-user.css';
 
 export class RegisterUser extends React.Component {
 	constructor(props) {

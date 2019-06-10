@@ -16,7 +16,6 @@ export class EditTask extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(getProject(this.props.user));
-    console.log(this.props.task);
     this.props.dispatch(change("EditTask", "taskTitle",this.props.task.taskTitle));
     this.props.dispatch(change("EditTask", "taskDueDate",this.props.task.taskDueDate));
     this.props.dispatch(change("EditTask", "taskDetail",this.props.task.taskDetail));
@@ -25,8 +24,6 @@ export class EditTask extends React.Component {
 
 
   onSubmit(values) {
-    console.log(values);
-    console.log('editing task', this.props.task);
     this.props.dispatch(editTask({
       id: this.props.task._id,
       taskTitle: values.taskTitle,
@@ -94,14 +91,9 @@ export class EditTask extends React.Component {
   }
 }
 const mapStateToProps = (state, props) => {
-  console.log(state);
-  console.log(props);
 	const {taskId} = props.match.params;
-  console.log("taskId", taskId);
   let task = null;
   
-
-
   const project = state.listmoReducer.projects.filter(function(project) {
       let pass = false;
       project.projectTask.forEach(pTask=>{
@@ -112,11 +104,8 @@ const mapStateToProps = (state, props) => {
       });
       return pass
     })[0] || {};
-
     const projectId = project._id;
-
-    console.log(task);
-
+    
   return {
     user: state.authReducer.currentUser,
 		taskId,

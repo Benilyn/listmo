@@ -6,7 +6,7 @@ import Task from './task';
 import AddTask from './add-task';
 import EditTask from './edit-task';
 import {addTask, deleteTask} from '../actions/action-task.js';
-import './project.css';
+import '../css/project.css';
 import {deleteProject, getProject} from '../actions/action-project.js';
 
 
@@ -25,25 +25,21 @@ export class Project extends React.Component {
 	}
 
 	deleteProject(editProject) {
-		console.log('delete project ', editProject.id);
 		this.props.dispatch(deleteProject(editProject.id));
 		const { history } = this.props;
 		history.push('/project-list');
-//		<Redirect to="/project-list" />
 
 	}
 
 	componentDidMount() {
-		//this.props.dispatch(getProject(this.props.user));
+		this.props.dispatch(getProject(this.props.user));
 		if(localStorage.getItem('authToken')) {
-			console.log('authToken exists');
 			this.props.dispatch(getProject(localStorage.getItem('authToken')))
 		}
 	}
 
 
 	deleteTask(task) {
-		console.log('delete task ', task);
 		this.props.dispatch(deleteTask(task._id));
 	}
 
@@ -107,7 +103,6 @@ const mapStateToProps = (state, props) => {
 			return item._id === projectId
 		})[0] || {};
 	editProject = project;
-	console.log(project);
 	return {
 		user: state.authReducer.currentUser,
 		projectId,
