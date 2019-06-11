@@ -35,10 +35,11 @@ export const authError = error => ({
 });
 
 
-const storeAuthInfo = (authToken, dispatch) => {
+const storeAuthInfo = (authToken, dispatch, cb) => {
   if (authToken) {
     dispatch(authSuccess(authToken));
     saveAuthToken(authToken);
+    cb();
   }
   else {
     console.log('must login');
@@ -46,7 +47,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 };
 
-export const loginUser = (userName, password) => dispatch => {
+export const loginUser = (userName, password, cb) => dispatch => {
   dispatch(authRequest());
   return (
     fetch(`${API_BASE_URL}/login`, {
@@ -60,7 +61,7 @@ export const loginUser = (userName, password) => dispatch => {
   		}) //body
   	}) //fetch
     .then(res => res.json())
-    .then(res => storeAuthInfo(res.authToken, dispatch))
+    .then(res => storeAuthInfo(res.authToken, dispatch, cb))
   	.catch(err => {
       console.log('testing if I make it this far');
       console.log(err);

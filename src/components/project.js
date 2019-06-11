@@ -31,7 +31,6 @@ export class Project extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.dispatch(getProject(this.props.user));
 		if(localStorage.getItem('authToken')) {
 			this.props.dispatch(getProject(localStorage.getItem('authToken')))
 		}

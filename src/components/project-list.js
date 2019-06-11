@@ -11,9 +11,7 @@ import {addProject, getProject , deleteProject, editProject} from '../actions/ac
 export class ProjectList extends React.Component {
 
 	componentDidMount() {
-			if(localStorage.getItem('authToken')) {
 				this.props.dispatch(getProject(localStorage.getItem('authToken')))
-			}
 	} //*componentDidMount
 
 	addProject(projectTitle) {
