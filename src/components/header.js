@@ -33,7 +33,7 @@ const self = this;
 				<div className="menu-button">
 					{localStorage.getItem('authToken') ? <div className="logout-button">{logOutButton}</div> : ""}
 				</div>
-				<h1><a href="/">listmo app</a></h1>
+				<h1><a href="/">ListMo</a></h1>
 			</div>
 			</div> //headerParent
 		);

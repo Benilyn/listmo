@@ -1,12 +1,16 @@
 div.header {
-  background-color: lightskyblue;
+  background-color:steelblue;
   height: auto;
 }
 
 h1 {
   padding-top: 0.25em;
   padding-bottom: .5em;
-  background-color: lightskyblue;
+  background-color:steelblue;
+}
+
+h1 a {
+  color: lightgray;
 }
 
 button.logout {
@@ -15,12 +19,12 @@ button.logout {
   padding: 0 1em .25em 0;
   border: none;
   text-align: right;
-  background-color: lightskyblue;
+  background-color:steelblue;
 }
 button.logout:hover {
   color: red;
 }
 
 .logout-button {
-  background-color: lightskyblue;
+  background-color:steelblue;
 }

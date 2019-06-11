@@ -12,8 +12,10 @@ export class LandingPage extends React.Component {
 			{return (isLoggedIn) ? <Redirect to="/project-list"/> :
 			<div className="landing-page">
 				<LoginForm />
-				<Link to="/register">Register</Link>
-
+				<div className="register-user-link">
+					<p>Don't have an account?</p>
+					<Link to="/register" className="register-link">Register here</Link>
+				</div>
 				<div className="guest-login">
 						<p>To login as Guest, please use:</p>
 						<p>Username: Guest</p>

@@ -1,16 +1,67 @@
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style type="text/css">
+
+* {
+	font: Arial, Helvetica, sans-serif;
+}
 .login-form {
-  width: 65%;
-  border: solid .05em gray;
-  margin: 0 auto .25em;
-  text-align: center;
+	width: 65%;
+	padding: 1em;
+	margin: 0 auto 1em;
+	text-align: center;
+	border: solid .05em gray;
+	box-shadow: 10px 5px 5px gray;
+	-moz-box-shadow: 10px 5px 5px gray;
+	-webkit-box-shadow:  10px 5px 5px gray;
 }
 
+
 .login-form h3 {
-  margin: 1em 0;
+	padding: .5em;
+	font-size: 1.25em;
+	font-weight: 100;
+	text-align: center;
+	margin: 0;
+
+	background: grey;
+	text-transform: uppercase;
+	color: white;
+}
+
+.loginUserName, .loginPassword {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 3%;
+	border-style: none;
+	background: transparent;
+	height: 45px;
+	color: #555;
+}
+
+input {
+	height: 2.5em;
+	font: 100%;
 }
 
 .login-form button {
-  width: 40%;
-  margin: .5em auto;
-  border: .125em solid lightslategrey;
+	background-color: grey;
+	border: .125em solid grey;
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	font-size: 14px;
+	padding: .5em;
+	margin: 1.5em auto 0;
+	width: 40%;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.login-form button :hoover {
+	background:linear-gradient(to bottom, lightgray 5%, gray 100%);
+	background-color:gray;
 }
