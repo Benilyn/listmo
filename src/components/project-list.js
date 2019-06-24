@@ -33,9 +33,10 @@ export class ProjectList extends React.Component {
 			return(
 				<li className="project-link" key={index}>
 					<Link to={`/project-list/${project._id}`}>
-						<h4>{project.projectTitle}</h4>
-						<span>{project.projectDueDate}</span>
+						<p>{project.projectTitle}</p>
+						
 					</Link>
+					<span>{project.projectDueDate}</span>
 					<div className="project-list-buttons">
 						<button id="delete-project"
 									onClick={() => {
@@ -56,7 +57,7 @@ export class ProjectList extends React.Component {
 	}
 		return (
 			<div className="project-list">
-				<h3> Project </h3>
+				<h3> Project List</h3>
 				<ul className="project-container">
 					{projectList}
 				</ul>

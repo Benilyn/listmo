@@ -70,8 +70,8 @@ export class Project extends React.Component {
 					<span>{this.props.projectDetail}</span><br />
 				</div>
 				<div className="task-list-container">
-					<ul className="task-list">
-						<h3>{this.props.title}</h3>
+					<h3>{this.props.title}</h3>
+					<ul className="task-list">	
 						{projectTask}
 					</ul>
 
