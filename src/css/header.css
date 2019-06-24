@@ -1,11 +1,15 @@
+.headerParent {
+  margin-bottom: 10px;
+}
+
 div.header {
   background-color:steelblue;
   height: auto;
 }
 
 h1 {
-  padding-top: 0.25em;
-  padding-bottom: .5em;
+  padding: 10px;
+  padding-bottom: 15px;
   background-color:steelblue;
 }
 
@@ -16,15 +20,16 @@ h1 a {
 button.logout {
   width: 20%;
   margin-left: 80%;
-  padding: 0 1em .25em 0;
+  padding: 5px 15px 5px 0;
   border: none;
   text-align: right;
-  background-color:steelblue;
+  color: gray;
+  background-color: transparent;
 }
 button.logout:hover {
   color: red;
 }
 
 .logout-button {
-  background-color:steelblue;
+  background-color: transparent;
 }
