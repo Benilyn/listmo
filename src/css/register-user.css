@@ -1,18 +1,31 @@
 form.registration-form {
-  border: solid .125em lightgray;
-  margin: 20% 1.5em;
   height: 17em;
+  width: 65%;
+	padding: 1em;
+	margin: 4em auto;
+	text-align: center;
+  border: solid .05em gray;
+  box-shadow: 10px 5px 5px gray;
+	-moz-box-shadow: 10px 5px 5px gray;
+	-webkit-box-shadow:  10px 5px 5px gray;
 }
 
 h3 {
-  text-align: center;
+  padding: .5em;
+	font-size: 1.25em;
+	font-weight: 100;
+	text-align: center;
+	margin: 0;
+	background: grey;
+	text-transform: uppercase;
+	color: white;
 }
 
 input {
   border: solid .025em lightgray;
   width: 85%;
   margin: 0.25em 4.5%;
-  height: 2em;
+  height: 2.5em;
   padding: .125em .75em;
 }
 
@@ -21,6 +34,7 @@ div.register-buttons {
   margin: 0.5em 0;
   height: 2em;
   padding: .5% 10%;
+  
 }
 
 .register-buttons button {

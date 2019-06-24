@@ -1,5 +1,5 @@
 .headerParent {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 div.header {
@@ -9,7 +9,7 @@ div.header {
 
 h1 {
   padding: 10px;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
   background-color:steelblue;
 }
 
@@ -18,18 +18,19 @@ h1 a {
 }
 
 button.logout {
-  width: 20%;
-  margin-left: 80%;
-  padding: 5px 15px 5px 0;
+  width: auto;
+  margin-left: 85%;
   border: none;
   text-align: right;
-  color: gray;
+  color: lightgray;
   background-color: transparent;
 }
-button.logout:hover {
+.logout:hover {
   color: red;
+  background-color: transparent;
 }
 
 .logout-button {
   background-color: transparent;
+  padding-bottom: 5px;
 }
