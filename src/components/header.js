@@ -30,10 +30,11 @@ const self = this;
 				{self.props.isLoggedOut && (<Redirect to="/" />)}
 			</div>
 			<div className="header">
-				<div className="menu-button">
-					{localStorage.getItem('authToken') ? <div className="logout-button">{logOutButton}</div> : ""}
-				</div>
+				
 				<h1><a href="/">ListMo</a></h1>
+			</div>
+			<div className="menu-button">
+					{localStorage.getItem('authToken') ? <div className="logout-button">{logOutButton}</div> : ""}
 			</div>
 			</div> //headerParent
 		);
