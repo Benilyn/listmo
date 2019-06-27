@@ -72,7 +72,7 @@ export class AddProject extends React.Component {
           <button type="submit">
             Add
           </button>
-          <button type="button" onClick={reset}>
+          <button type="button" onClick={() => this.props.dispatch(reset('AddProject'))}>
             clear
           </button>
           <button type="button" onClick = {() => this.setEditing(false)}>
