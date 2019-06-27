@@ -17,7 +17,7 @@ export class LandingPage extends React.Component {
 					<Link to="/register" className="register-link">Register here</Link>
 				</div>
 				<div className="guest-login">
-						<p>To login as Guest, please use:</p>
+						<p className="guest-login-top">To login as Guest, please use:</p>
 						<p>Username: Guest</p>
 						<p>Password: password</p>
 				</div>

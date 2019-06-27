@@ -15,7 +15,7 @@ export class Task extends React.Component {
 
 		return (
 			<div className="task-info" >
-				<h4>{this.props.taskTitle}</h4>
+				<p>{this.props.taskTitle}</p>
 				{details}
 			</div>
 		)

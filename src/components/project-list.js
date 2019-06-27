@@ -27,14 +27,14 @@ export class ProjectList extends React.Component {
 
 	render() {
 		let projectList;
+		let dueDate;
 		if (this.props.projects.length) {
 		projectList = this.props.projects
 			.map((project, index) => {
 			return(
-				<li className="project-link" key={index}>
+				<li className="project-link" key={index}>	 
 					<Link to={`/project-list/${project._id}`}>
-						<p>{project.projectTitle}</p>
-						
+						<p>{project.projectTitle}</p>	
 					</Link>
 					<span>{project.projectDueDate}</span>
 					<div className="project-list-buttons">
@@ -44,11 +44,12 @@ export class ProjectList extends React.Component {
 										this.deleteProject(project)}}>
 								Delete
 						</button>
-						<Link to={`/project-list/edit/${project._id}`}>
-							<button id="edit-project">
+						<button id="edit-project">
+							<Link to={`/project-list/edit/${project._id}`}>
 								Edit
-							</button>
-						</Link>
+							</Link>
+						</button>
+						
 					</div>
 
 				</li>
@@ -61,12 +62,12 @@ export class ProjectList extends React.Component {
 				<ul className="project-container">
 					{projectList}
 				</ul>
-				<div className="add-project">
+				
 					<AddProject
 						type="project"
 						onAdd={projectTitle => this.addProject(projectTitle)}
 					/>
-				</div>
+				
 			</div>
 		); {/*return*/}
 	}

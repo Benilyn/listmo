@@ -4,6 +4,8 @@ import {Redirect} from 'react-router-dom';
 import {editProject, postProject, getProject} from '../actions/action-project.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
 
+import '../css/project-form.css';
+
 export class EditProject extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,7 @@ export class EditProject extends React.Component {
     return (
       <form className="edit-project-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="project-title">
+        <div className="edit-project-title">
           <Field
               name="projectTitle"
               component="input"
@@ -59,7 +61,7 @@ export class EditProject extends React.Component {
               placeholder="Title"
           />
         </div>
-        <div  className="project-duedate">
+        <div  className="edit-project-duedate">
           <Field
               name="projectDueDate"
               component="input"
@@ -67,7 +69,7 @@ export class EditProject extends React.Component {
               placeholder="Due Date"
           />
         </div>
-        <div  className="project-detail">
+        <div  className="edit-project-detail">
           <Field
               name="projectDetail"
               component="input"
@@ -75,7 +77,7 @@ export class EditProject extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="buttons">
+        <div className="edit-project-buttons">
           <button type="submit">
             Submit
           </button>

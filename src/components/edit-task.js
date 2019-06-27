@@ -5,6 +5,8 @@ import {editTask, postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
 import {getProject} from '../actions/action-project.js';
 
+import '../css/task-form.css';
+
 export class EditTask extends React.Component {
   constructor(props) {
     super(props);
@@ -54,7 +56,7 @@ export class EditTask extends React.Component {
     return (
       <form className="edit-task-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="task-title">
+        <div className="edit-task-title">
           <Field
               name="taskTitle"
               component="input"
@@ -62,7 +64,7 @@ export class EditTask extends React.Component {
               placeholder="Title"
           />
         </div>
-        <div  className="task-duedate">
+        <div  className="edit-task-duedate">
           <Field
               name="taskDueDate"
               component="input"
@@ -70,7 +72,7 @@ export class EditTask extends React.Component {
               placeholder="Due Date"
           />
         </div>
-        <div  className="task-detail">
+        <div  className="edit-task-detail">
           <Field
               name="taskDetail"
               component="input"
@@ -78,7 +80,7 @@ export class EditTask extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="buttons">
+        <div className="edit-task-buttons">
           <button type="submit">
             Submit
           </button>

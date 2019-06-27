@@ -4,6 +4,7 @@ import { postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset} from 'redux-form';
 import {getProject} from '../actions/action-project.js';
 
+import '../css/add-task.css';
 
 let project;
 export class AddTask extends React.Component {
@@ -44,7 +45,7 @@ export class AddTask extends React.Component {
   render() {
     if(!this.state.editing) {
       return (
-        <div className="add-button"
+        <div className="add-task-button"
           onClick = {() => this.setEditing(true)}>
             <button className="add-button">
               Add {this.props.type}
@@ -79,7 +80,7 @@ export class AddTask extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="buttons">
+        <div className="add-task-buttons">
           <button type="submit">
             Add
           </button>

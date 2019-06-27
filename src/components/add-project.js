@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {postProject} from '../actions/action-project.js';
 import {Field, reduxForm, reset} from 'redux-form';
 
+import '../css/add-project.css';
+
 export class AddProject extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +33,7 @@ export class AddProject extends React.Component {
   render() {
     if(!this.state.editing) {
       return (
-        <div className="add-button"
+        <div className="add-project-button"
           onClick = {() => this.setEditing(true)}>
             <button className="add-button">
               Add {this.props.type}
@@ -66,7 +68,7 @@ export class AddProject extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="buttons">
+        <div className="add-project-buttons">
           <button type="submit">
             Add
           </button>
