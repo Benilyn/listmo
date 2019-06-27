@@ -1,5 +1,5 @@
 .project-detail {
-  width: 85%;
+  width: 80%;
   margin: 10px auto;
   border: solid 1px gray;
 }
@@ -18,68 +18,80 @@ span {
   color: white;
 }
 
-h2 {
+.project-info h2 {
   margin: 0;
-  padding: 2%;
+  padding: 10px;
 }
 
-ul.task-list {
-  width: 75%;
-  margin: 5px auto;
+ul.task-list-container {
   padding: 0;
+  margin: 15px auto;
+  width: 75%;
+  text-transform: capitalize;
 }
 
-.task-list-container {
-  padding-bottom: 15px;
-  color: black;
-}
-
-.task-list-container h3 {
-  background-color: gray;
+.task-list {
+  border-top: solid 1px lightgray;
   font-size: 16px;
-  border-top: double;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 .task-name {
-  display: inline-flex;
   padding: 2px;
   margin: 1px auto;
   height: auto;
-  width: 100%;
+  width: 98%;
+  text-align: center;
   border: groove .125em lightgray;
 }
 
-.task-buttons {
-  width: 20%;
-  display: initial;
+.task-list-buttons {
+  display: flex;
+  top: 0;
+  right: 0;
 }
 
-.task-buttons button {
-  width: 100%;
-  height: 2em;
-  border: .0125em solid slategray;
+.task-list-buttons a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+.task-list-buttons a:hover {
+  color: red;
+}
+
+.task-list-buttons button {
+  color: black;
+  flex: 1;
+  border: outset 1px lightgray;
+  margin: 2px 5px;
   background-color: lightgray;
+}
+
+.task-list-buttons button:hover {
+  color: red;
 }
 
 #delete-task {
   padding: 0;
 }
 
-.task-info {
-  width: 80%;
-}
-.task-info h4 {
-  margin: .5em 0;
-}
-
-.add-task {
-  width: 40%;
-  margin: 10px auto 15px;
+.task-info p {
+  color: steelblue;
+  text-align: center;
+  margin: 3px auto;
 }
 
-.add-button button {
-  width: 100%;
-  height: auto;
-  padding: 4px;
-  border: 1px solid slategray;
+.task-details span {
+  color: black;
+  font-size: 14px;
+  text-align: center;
 }
+
+div.add-task-button {
+  width: 75%;
+  margin: 15px auto;
+}
+

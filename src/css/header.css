@@ -5,21 +5,27 @@
 div.header {
   background-color:steelblue;
   height: auto;
+  display: inline-flex;
+  width: 100%;
 }
 
 h1 {
-  padding: 10px;
-  padding-bottom: 25px;
+  flex: 1;
+  padding: 20px;
   background-color:steelblue;
 }
 
 h1 a {
   color: lightgray;
+  text-decoration-line: none;
+}
+
+.logout-button {
+  flex: 1;
 }
 
 button.logout {
   width: auto;
-  margin-left: 85%;
   border: none;
   text-align: right;
   color: lightgray;
@@ -32,5 +38,7 @@ button.logout {
 
 .logout-button {
   background-color: transparent;
-  padding-bottom: 5px;
+  position: absolute;
+  right: 10px;
+  padding: 5px;
 }

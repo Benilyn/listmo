@@ -1,0 +1,39 @@
+form.add-task-form {
+    padding: 0;
+    margin: 15px auto;
+    width: 75%;
+    background-color: lightgoldenrodyellow;
+    border: solid 2px gray;
+  }
+
+  form.add-task-form div {
+    border-style: none;
+    margin: 3px auto;
+    padding: 1px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+
+  form.add-task-form input:focus {
+      outline: 2px solid steelblue;
+  }
+
+  form.add-task-buttons {
+    display: flex;
+    top: 0;
+    right: 0;
+  }
+
+  .add-task-buttons button {
+    color: black;
+    flex: 1;
+    border: outset 1px lightgray;
+    margin: 2px 5px;
+    background-color: lightgray;
+    text-transform: capitalize;
+  }
+
+  .add-task-buttons button:hover {
+      color: red;
+  }

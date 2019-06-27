@@ -1,0 +1,31 @@
+.edit-project-form {
+    width: 65%;
+    padding: 15px;
+    margin: 25px auto;
+    border: solid 2px lightgray;
+}
+
+.edit-project-form input {
+    width: 85%;
+    border: solid 1px lightgray;
+}
+
+.edit-project-buttons {
+    display: flex;
+    top: 0;
+    right: 0;
+    width: 60%;
+    margin: 5px auto;
+  }
+
+  .edit-project-buttons button {
+    height: 25px;
+    flex: 1;
+    border: outset 1px lightgray;
+    margin: 2px 5px;
+    background-color: lightgray;
+  }
+
+  .edit-project-buttons button:hover {
+    color: red;
+  }

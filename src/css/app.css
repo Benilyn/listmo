@@ -12,4 +12,34 @@ h1 {
 a {
   display: block;
   text-align: center;
+  text-decoration: none;
+}
+
+input:focus {
+  outline: 2px solid steelblue;
+} 
+
+li:hover {
+  outline: 2px solid steelblue;
+}
+
+button.add-button {
+  width: 100%;
+  height: 100%;
+  color: lightgray;
+  font-size: 20px;
+  padding: 6px;
+  background-color: steelblue;
+  text-transform: capitalize;
+  border: solid 1px gray;
+  box-shadow: 10px 5px 5px gray;
+}
+
+button.add-button:hover {
+  color: red;
+  background-color: steelblue;  
+}
+
+button:hover {
+  outline: solid 1px gray;
 }

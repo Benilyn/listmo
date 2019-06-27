@@ -2,21 +2,28 @@ div.project-list {
   border: solid gray;
   width: 80%;
   margin: 15px auto;
+  box-shadow: 10px 5px 5px gray;
 }
 
 ul.project-container {
   padding: 0;
   margin: 15px auto;
   width: 75%;
+  text-transform: capitalize;
 }
 
 li.project-link {
   border-style: groove;
-  margin: 1px auto;
+  margin: 3px auto;
   padding: 1px;
-  width: 100%;
+  width: 98%;
   text-align: center;
   display: inline-block;
+}
+
+.project-link span {
+  color: black;
+  font-size: 14px;
 }
 
 .project-list-buttons {
@@ -27,6 +34,12 @@ li.project-link {
 
 .project-list-buttons a {
   display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+.project-list-buttons a:hover {
+  color: red;
 }
 
 .project-link a {
@@ -39,19 +52,21 @@ li.project-link {
   color: steelblue;
 }
 
-#delete-project, .project-list-buttons a {
+.project-list-buttons button {
+  color: black;
   flex: 1;
   border: outset 1px lightgray;
   margin: 2px 5px;
   background-color: lightgray;
 }
 
-.add-project {
-  width: 60%;
+.project-list-buttons button:hover {
+  color: red;
+}
+
+div.add-project-button {
+  width: 75%;
   margin: 15px auto;
 }
 
-span {
-  color: black;
-  font-size: 14px;
-}
+
