@@ -6,7 +6,7 @@
 }
 .login-form {
 	width: 65%;
-	padding: 10px;
+	padding-bottom: 10px;
 	margin: 15px auto;
 	text-align: center;
 	border: solid 1px gray;
@@ -17,11 +17,10 @@
 
 
 .login-form h3 {
-	padding: 10px;
 	font-size: 18px;
 	font-weight: 100;
 	text-align: center;
-	margin: 0;
+	margin-bottom: 10px;
 
 	background: grey;
 	text-transform: uppercase;
@@ -34,16 +33,17 @@
 	-moz-box-sizing: border-box;
 	outline: none;
 	display: block;
-	width: 100%;
-	padding: 3%;
+	width: 84%;
+	margin: 0 auto;
 	border-style: none;
 	background: transparent;
-	height: 45px;
 	color: #555;
 }
 
-input {
+.login-form input {
 	height: 30px;
+	width: 99%;
+	margin: 3px auto;
 	font-size: 15px;
 }
 
@@ -53,10 +53,11 @@ input {
 	display: inline-block;
 	cursor: pointer;
 	color: white;
-	font-size: 14px;
+	font-size: 15px;
 	padding: 6px;
-	margin: 20px auto 0;
-	width: 40%;
+	margin: 15px auto 0;
+	width: 84%;
+	height: 35px;
 	text-decoration: none;
 	text-transform: uppercase;
 }

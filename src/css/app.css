@@ -15,6 +15,18 @@ a {
   text-decoration: none;
 }
 
+span.details {
+  text-transform: initial;
+}
+
+input {
+  text-transform: capitalize;
+}
+
+input[type="date"] {
+  text-transform: uppercase;
+}
+
 input:focus {
   outline: 2px solid steelblue;
 } 

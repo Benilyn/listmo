@@ -1,54 +1,57 @@
 form.registration-form {
-  height: 17em;
   width: 65%;
-	padding: 1em;
-	margin: 4em auto;
+	margin: 40px auto;
 	text-align: center;
-  border: solid .05em gray;
+  border: solid 1px gray;
   box-shadow: 10px 5px 5px gray;
 	-moz-box-shadow: 10px 5px 5px gray;
 	-webkit-box-shadow:  10px 5px 5px gray;
 }
 
 h3 {
-  padding: .5em;
-	font-size: 1.25em;
+  padding: 10px 0;
+	font-size: 19px;
 	font-weight: 100;
-	text-align: center;
-	margin: 0;
+  text-align: center;
+  width: 100%;
+  height: 25px;
+  margin-top: 0;
+  margin-bottom: 8px;
 	background: grey;
 	text-transform: uppercase;
 	color: white;
 }
 
-input {
-  border: solid .025em lightgray;
+.registration-form input {
+  border: solid 1px lightgray;
   width: 85%;
-  margin: 0.25em 4.5%;
-  height: 2.5em;
-  padding: .125em .75em;
+  margin: 3px auto;
+  height: 30px;
+  padding: 3px 10px;
 }
 
 div.register-buttons {
-  width: 100%;
-  margin: 0.5em 0;
-  height: 2em;
-  padding: .5% 10%;
-  
+  display: flex;
+  top: 0;
+  right: 0;
+  width: 91%;
+  height: 30px;
+  margin: 5px auto 10px;
 }
 
 .register-buttons button {
-  width: 25%;
-  margin: 0 .5%;
-  height: 100%;
-  text-align: center;
-  padding: .5em auto;
-  border: none;
+  color: black;
+  font-size: 14px;
+  padding: 3px;
+  flex: 1;
+  border: outset 1px lightgray;
+  margin: 2px 5px;
   background-color: lightgray;
 }
 
 button:hover {
-  color: lightgray;
-  background-color: red;
+  color: red;
+  background-color: lightgray;
+
 
 }

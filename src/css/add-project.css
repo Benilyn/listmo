@@ -10,19 +10,19 @@ form.add-project-form {
     border-style: none;
     margin: 3px auto;
     padding: 1px;
-    width: 100%;
     text-align: center;
-    display: inline-block;
   }
 
   form.add-project-form input:focus {
       outline: 2px solid steelblue;
   }
 
-  form.add-project-buttons {
+  div.add-project-buttons {
     display: flex;
     top: 0;
     right: 0;
+    width: 93%;
+    padding: 0;
   }
 
   .add-project-buttons button {
