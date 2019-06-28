@@ -45,6 +45,7 @@
 	width: 99%;
 	margin: 3px auto;
 	font-size: 15px;
+	border: solid 1px gray;
 }
 
 .login-form button {
