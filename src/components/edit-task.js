@@ -5,7 +5,7 @@ import {editTask, postTask} from '../actions/action-task.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
 import {getProject} from '../actions/action-project.js';
 
-import '../css/task-form.css';
+import '../css/edit-task.css';
 
 export class EditTask extends React.Component {
   constructor(props) {
@@ -17,9 +17,10 @@ export class EditTask extends React.Component {
   }
 
   componentDidMount() {
+    const taskDue = new Date(this.props.task.taskDueDate).toDateString();
     this.props.dispatch(getProject(this.props.user));
     this.props.dispatch(change("EditTask", "taskTitle",this.props.task.taskTitle));
-    this.props.dispatch(change("EditTask", "taskDueDate",this.props.task.taskDueDate));
+    this.props.dispatch(change("EditTask", "taskDueDate",taskDue));
     this.props.dispatch(change("EditTask", "taskDetail",this.props.task.taskDetail));
   } //*componentDidMount
 
@@ -54,9 +55,9 @@ export class EditTask extends React.Component {
 
 
     return (
-      <form className="edit-task-form"
+      <form id="edit-task-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="edit-task-title">
+        <div id="edit-task-title">
           <Field
               name="taskTitle"
               component="input"
@@ -64,7 +65,7 @@ export class EditTask extends React.Component {
               placeholder="Title"
           />
         </div>
-        <div  className="edit-task-duedate">
+        <div  id="edit-task-duedate">
           <Field
               name="taskDueDate"
               component="input"
@@ -72,7 +73,7 @@ export class EditTask extends React.Component {
               placeholder="Due Date"
           />
         </div>
-        <div  className="edit-task-detail">
+        <div  id="edit-task-detail">
           <Field
               name="taskDetail"
               component="input"
@@ -80,7 +81,7 @@ export class EditTask extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="edit-task-buttons">
+        <div id="edit-task-buttons">
           <button type="submit">
             Submit
           </button>

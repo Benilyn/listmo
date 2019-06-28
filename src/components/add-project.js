@@ -44,7 +44,7 @@ export class AddProject extends React.Component {
     return (
       <form className="add-project-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="project-title">
+        <div className="add-project-title">
           <Field
               name="projectTitle"
               component="input"
@@ -52,7 +52,7 @@ export class AddProject extends React.Component {
               placeholder="Title"
           />
         </div>
-        <div  className="project-duedate">
+        <div  className="add-project-duedate">
           <Field
               name="projectDueDate"
               component="input"
@@ -60,7 +60,7 @@ export class AddProject extends React.Component {
               placeholder="Due Date"
           />
         </div>
-        <div  className="project-detail">
+        <div  className="add-project-detail">
           <Field
               name="projectDetail"
               component="input"

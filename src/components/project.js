@@ -66,7 +66,7 @@ export class Project extends React.Component {
 			<div className="project-detail">
 				<div className="project-info">
 					<h2>{this.props.projectTitle}</h2>
-					<span>Due: {this.props.projectDueDate}</span><br />
+					<span>Due: {new Date(this.props.projectDueDate).toDateString()}</span><br />
 					<span>{this.props.projectDetail}</span><br />
 				</div>
 				<div className="task-list">

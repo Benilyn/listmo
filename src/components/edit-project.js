@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 import {editProject, postProject, getProject} from '../actions/action-project.js';
 import {Field, reduxForm, reset, change} from 'redux-form';
 
-import '../css/project-form.css';
+import '../css/edit-project.css';
 
 export class EditProject extends React.Component {
   constructor(props) {
@@ -16,9 +16,10 @@ export class EditProject extends React.Component {
   }
 
   componentDidMount() {
+    const projectDue = new Date(this.props.project.projectDueDate).toDateString();
     this.props.dispatch(getProject(this.props.user));
     this.props.dispatch(change("EditProject", "projectTitle",this.props.project.projectTitle));
-    this.props.dispatch(change("EditProject", "projectDueDate",this.props.project.projectDueDate));
+    this.props.dispatch(change("EditProject", "projectDueDate",projectDue));
     this.props.dispatch(change("EditProject", "projectDetail",this.props.project.projectDetail));
   } //*componentDidMount
 
@@ -51,9 +52,10 @@ export class EditProject extends React.Component {
 
 
     return (
-      <form className="edit-project-form"
+      <form id="edit-project-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-        <div className="edit-project-title">
+            
+        <div id="edit-project-title">
           <Field
               name="projectTitle"
               component="input"
@@ -61,7 +63,7 @@ export class EditProject extends React.Component {
               placeholder="Title"
           />
         </div>
-        <div  className="edit-project-duedate">
+        <div  id="edit-project-duedate">
           <Field
               name="projectDueDate"
               component="input"
@@ -69,7 +71,7 @@ export class EditProject extends React.Component {
               placeholder="Due Date"
           />
         </div>
-        <div  className="edit-project-detail">
+        <div  id="edit-project-detail">
           <Field
               name="projectDetail"
               component="input"
@@ -77,7 +79,7 @@ export class EditProject extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="edit-project-buttons">
+        <div id="edit-project-buttons">
           <button type="submit">
             Submit
           </button>

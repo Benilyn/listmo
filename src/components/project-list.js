@@ -35,8 +35,8 @@ export class ProjectList extends React.Component {
 				<li className="project-link" key={index}>	 
 					<Link to={`/project-list/${project._id}`}>
 						<p>{project.projectTitle}</p>	
+						<span>{new Date(project.projectDueDate).toDateString()}</span>
 					</Link>
-					<span>{project.projectDueDate}</span>
 					<div className="project-list-buttons">
 						<button id="delete-project"
 									onClick={() => {
@@ -51,7 +51,7 @@ export class ProjectList extends React.Component {
 						</button>
 						
 					</div>
-
+					
 				</li>
 			) //return
 		}) //*projectList

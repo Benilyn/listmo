@@ -8,8 +8,8 @@ export class Task extends React.Component {
 		let details;
 			details = (
 				<div className="task-details">
-					<span>Due: {this.props.taskDueDate}</span><br />
-					<span>{this.props.taskDetail}</span>
+					<span>Due: {new Date(this.props.taskDueDate).toDateString()}</span><br />
+					<span className="details">{this.props.taskDetail}</span>
 				</div>);
 		
 
