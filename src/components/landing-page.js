@@ -18,7 +18,7 @@ export class LandingPage extends React.Component {
 				</div>
 				<div className="guest-login">
 						<p className="guest-login-top">To login as Guest, please use:</p>
-						<p>Username: Guest</p>
+						<p>Username: guest</p>
 						<p>Password: password</p>
 				</div>
 			</div>}

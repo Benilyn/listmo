@@ -82,15 +82,7 @@ export class RegisterUser extends React.Component {
 						placeholder="Password"
 					/>
 				</div>
-{/*				<div className="confirmPassword">
-					<Field
-						component="input"
-						type="password"
-						name="confirmPassword"
-						placeholder="Confirm Password"
-					/>
-				</div>
-*/}				 <div className="register-buttons">
+				<div className="register-buttons">
 			        <button type="submit">
 			          Submit
 			        </button>
