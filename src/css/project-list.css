@@ -15,7 +15,7 @@ ul.project-container {
 li.project-link {
   border-style: groove;
   margin: 3px auto;
-  padding: 1px;
+  padding: 5px 0 10px;
   width: 98%;
   text-align: center;
   display: inline-block;
@@ -30,6 +30,7 @@ li.project-link {
   display: flex;
   top: 0;
   right: 0;
+  height: 30px;
 }
 
 .project-list-buttons a {
@@ -55,6 +56,8 @@ li.project-link {
 .project-list-buttons button {
   color: black;
   flex: 1;
+  font-size: 16px;
+  padding: 0;
   border: outset 1px lightgray;
   margin: 2px 5px;
   background-color: lightgray;
@@ -64,8 +67,13 @@ li.project-link {
   color: red;
 }
 
+#edit-project a {
+  margin: 0;
+}
+
 div.add-project-button {
-  width: 75%;
+  width: 74%;
+  height: 35px;
   margin: 15px auto;
 }
 

@@ -1,22 +1,22 @@
 form.add-project-form {
-    padding: 0;
+    padding: 0 0 10px;
     margin: 15px auto;
-    width: 75%;
+    width: 74%;
     background-color: lightgoldenrodyellow;
     border: solid 2px gray;
   }
 
   form.add-project-form div {
     border-style: none;
-    margin: 3px auto;
-    padding: 1px;
-    width: 100%;
+    margin: 6px auto 0;
+    width: 90%;
     text-align: center;
   }
 
   form.add-project-form input {
-    width: 90%;
-    height: 20px;
+    width: 100%;
+    height: 25px;
+    font-size: 14px;
     border: solid 1px lightgray;
   }
 
@@ -32,16 +32,18 @@ form.add-project-form {
     display: flex;
     top: 0;
     right: 0;
-    width: 93%;
+    width: 92%;
     padding: 0;
+    margin-bottom: 10px;
   }
 
   .add-project-buttons button {
     color: black;
     flex: 1;
-    height: 20px;
+    height: 25px;
+    font-size: 14px;
+    padding: 0;
     border: outset 1px lightgray;
-    margin: 2px 5px;
     background-color: lightgray;
     text-transform: capitalize;
   }
@@ -50,4 +52,8 @@ form.add-project-form {
       color: red;
       background-color: lightgray;
       outline: solid 1px gray;
+  }
+
+  .middle-button {
+    margin: 0 9px;
   }

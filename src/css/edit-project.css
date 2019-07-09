@@ -1,5 +1,5 @@
 form#edit-project-form {
-    padding: 0;
+    padding: 10px 0;
     margin: 15px auto;
     width: 75%;
     background-color: lightgoldenrodyellow;
@@ -11,12 +11,14 @@ form#edit-project-form {
     margin: 3px auto;
     padding: 1px;
     text-align: center;
-    width: 100%;
+    width: 90%;
   }
 
   form#edit-project-form input {
     height: 30px;
-    width: 88%;
+    width: 96%;
+    font-size: 16px;
+    padding: 0 5px;
     border: solid 1px lightgray;
 }  
 
@@ -32,19 +34,17 @@ form#edit-project-form {
     display: flex;
     top: 0;
     right: 0;
+    width: 90%;
     height: 30px;
     padding: 0;
     margin: 10px auto;
   }
 
-  .edit-buttons {
-    width: 90%;
-  }
-
   #edit-project-buttons button {
     color: black;
     flex: 1;
-    font-size: 12px;
+    font-size: 16px;
+    padding: 0;
     border: outset 1px lightgray;
     margin: 2px 5px;
     background-color: lightgray;
