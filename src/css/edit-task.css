@@ -11,6 +11,13 @@ form#edit-task-form {
     margin: 3px auto;
     padding: 1px;
     text-align: center;
+    width: 100%;
+  }
+
+  form#edit-task-form input {
+    height: 20px;
+    width: 88%;
+    border: solid 1px lightgray;
   }
 
   form#edit-task-form input:focus {

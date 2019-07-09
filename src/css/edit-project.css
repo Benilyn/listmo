@@ -11,10 +11,21 @@ form#edit-project-form {
     margin: 3px auto;
     padding: 1px;
     text-align: center;
+    width: 100%;
   }
+
+  form#edit-project-form input {
+    height: 20px;
+    width: 88%;
+    border: solid 1px lightgray;
+}  
 
   form#edit-project-form input:focus {
       outline: 2px solid steelblue;
+  }
+
+  #edit-project-detail input {
+    text-transform: none;
   }
 
   div#edit-project-buttons {

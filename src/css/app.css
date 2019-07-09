@@ -35,7 +35,7 @@ li:hover {
   outline: 2px solid steelblue;
 }
 
-button.add-button {
+button {
   width: 100%;
   height: 100%;
   color: lightgray;
@@ -47,11 +47,8 @@ button.add-button {
   box-shadow: 10px 5px 5px gray;
 }
 
-button.add-button:hover {
+button:hover {
   color: red;
   background-color: steelblue;  
-}
-
-button:hover {
   outline: solid 1px gray;
 }

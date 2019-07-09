@@ -45,7 +45,7 @@ export class AddTask extends React.Component {
   render() {
     if(!this.state.editing) {
       return (
-        <div className="add-task-button"
+        <div id="add-task-button"
           onClick = {() => this.setEditing(true)}>
             <button className="add-button">
               Add {this.props.type}
@@ -54,7 +54,7 @@ export class AddTask extends React.Component {
       );
     }
     return (
-      <form className="add-task-form"
+      <form id="add-task-form"
             onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <div className="add-task-title">
           <Field
@@ -64,7 +64,7 @@ export class AddTask extends React.Component {
               placeholder="Title"
           />
         </div>
-        <div  className="add-task-duedate">
+        <div  id="add-task-duedate">
           <Field
               name="taskDueDate"
               component="input"
@@ -72,7 +72,7 @@ export class AddTask extends React.Component {
               placeholder="Due Date"
           />
         </div>
-        <div  className="add-task-detail">
+        <div  id="add-task-detail">
           <Field
               name="taskDetail"
               component="input"
@@ -80,7 +80,7 @@ export class AddTask extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div className="add-task-buttons">
+        <div id="add-task-buttons">
           <button type="submit">
             Add
           </button>

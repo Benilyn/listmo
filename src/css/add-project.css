@@ -10,11 +10,22 @@ form.add-project-form {
     border-style: none;
     margin: 3px auto;
     padding: 1px;
+    width: 100%;
     text-align: center;
+  }
+
+  form.add-project-form input {
+    width: 90%;
+    height: 20px;
+    border: solid 1px lightgray;
   }
 
   form.add-project-form input:focus {
       outline: 2px solid steelblue;
+  }
+
+  .add-project-detail input {
+    text-transform: none;
   }
 
   div.add-project-buttons {
@@ -28,6 +39,7 @@ form.add-project-form {
   .add-project-buttons button {
     color: black;
     flex: 1;
+    height: 20px;
     border: outset 1px lightgray;
     margin: 2px 5px;
     background-color: lightgray;
@@ -36,4 +48,6 @@ form.add-project-form {
 
   .add-project-buttons button:hover {
       color: red;
+      background-color: lightgray;
+      outline: solid 1px gray;
   }
