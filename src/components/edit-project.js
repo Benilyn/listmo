@@ -79,7 +79,7 @@ export class EditProject extends React.Component {
               placeholder="Details"
           />
         </div>
-        <div id="edit-project-buttons">
+        <div id="edit-project-buttons" className="edit-buttons">
           <button type="submit">
             Submit
           </button>

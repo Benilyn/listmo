@@ -30,6 +30,7 @@ button.logout {
   text-align: right;
   color: lightgray;
   background-color: transparent;
+  box-shadow: none;
 }
 .logout:hover {
   color: red;

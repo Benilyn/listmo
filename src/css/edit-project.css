@@ -15,7 +15,7 @@ form#edit-project-form {
   }
 
   form#edit-project-form input {
-    height: 20px;
+    height: 30px;
     width: 88%;
     border: solid 1px lightgray;
 }  
@@ -32,10 +32,13 @@ form#edit-project-form {
     display: flex;
     top: 0;
     right: 0;
-    width: 90%;
     height: 30px;
     padding: 0;
     margin: 10px auto;
+  }
+
+  .edit-buttons {
+    width: 90%;
   }
 
   #edit-project-buttons button {
