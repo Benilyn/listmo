@@ -65,6 +65,8 @@ ul.task-list-container {
 .task-list-buttons button {
   color: black;
   flex: 1;
+  height: 30px;
+  font-size: 14px;
   border: outset 1px lightgray;
   margin: 2px 5px;
   background-color: lightgray;

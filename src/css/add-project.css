@@ -28,6 +28,11 @@ form.add-project-form {
     text-transform: none;
   }
 
+  .add-project-button button {
+    padding: 0;
+    height: 35px;
+  }
+
   div.add-project-buttons {
     display: flex;
     top: 0;

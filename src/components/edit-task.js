@@ -82,10 +82,10 @@ export class EditTask extends React.Component {
           />
         </div>
         <div id="edit-task-buttons">
-          <button type="submit">
+          <button className="edit-task-submit" type="submit">
             Submit
           </button>
-          <button type="button" onClick = {() => this.setRedirect(true)}>
+          <button className="edit-task-cancel" type="button" onClick = {() => this.setRedirect(true)}>
             Cancel
           </button>
         </div>

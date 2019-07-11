@@ -11,12 +11,13 @@ form#edit-task-form {
     margin: 3px auto;
     padding: 1px;
     text-align: center;
-    width: 100%;
+    width: 88%;
   }
 
   form#edit-task-form input {
-    height: 20px;
-    width: 88%;
+    height: 30px;
+    width: 100%;
+    font-size: 14px;
     border: solid 1px lightgray;
   }
 
@@ -31,19 +32,28 @@ form#edit-task-form {
     width: 90%;
     height: 30px;
     padding: 0;
-    margin: 10px auto;
+    margin-bottom: 10px;
   }
 
   #edit-task-buttons button {
     color: black;
     flex: 1;
-    font-size: 12px;
+    font-size: 14px;
+    padding:  0;
+    height: 30px;
     border: outset 1px lightgray;
-    margin: 2px 5px;
     background-color: lightgray;
     text-transform: capitalize;
   }
 
   #edit-task-buttons button:hover {
       color: red;
+  }
+
+  .edit-task-submit {
+    margin-right: 5px;
+  }
+
+  .edit-task-cancel {
+    margin-left: 5px;
   }

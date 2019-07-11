@@ -13,27 +13,53 @@ form#add-task-form {
     text-align: center;
   }
 
+  form#add-task-form input {
+    height: 30px;
+    font-size: 14px;
+    width: 90%;
+  }
+
   form#add-task-form input:focus {
       outline: 2px solid steelblue;
+  }
+
+  #add-task-button {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  #add-task-button button {
+    padding: 0;
+    height: 35px;
   }
 
   div#add-task-buttons {
     display: flex;
     top: 0;
     right: 0;
-    width: 93%;
+    width: 92%;
     padding: 0;
+    margin: 0 auto;
   }
 
   #add-task-buttons button {
     color: black;
     flex: 1;
+    padding: 0;
+    height: 25px;
+    font-size: 14px;
+    padding: 0;
     border: outset 1px lightgray;
-    margin: 2px 5px;
     background-color: lightgray;
     text-transform: capitalize;
   }
 
   #add-task-buttons button:hover {
-      color: red;
+    color: red;
+    background-color: lightgray;
+    outline: solid 1px gray;
+  }
+
+  .middle-button {
+    margin: 0 9px;
   }

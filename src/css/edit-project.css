@@ -11,14 +11,14 @@ form#edit-project-form {
     margin: 3px auto;
     padding: 1px;
     text-align: center;
-    width: 90%;
+    width: 88%;
   }
 
   form#edit-project-form input {
     height: 30px;
-    width: 96%;
-    font-size: 16px;
-    padding: 0 5px;
+    font-size: 14px;
+    padding: 0;
+    width: 100%;
     border: solid 1px lightgray;
 }  
 

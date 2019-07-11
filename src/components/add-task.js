@@ -84,7 +84,7 @@ export class AddTask extends React.Component {
           <button type="submit">
             Add
           </button>
-          <button type="button" onClick={() => this.props.dispatch(reset('AddTask'))}>
+          <button className="middle-button" type="button" onClick={() => this.props.dispatch(reset('AddTask'))}>
             clear
           </button>
           <button type="button" onClick = {() => this.setEditing(false)}>
